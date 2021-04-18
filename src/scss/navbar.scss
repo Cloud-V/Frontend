@@ -1,0 +1,30 @@
+@import "variables"; // Import styles
+@import "functions"; // Import styles
+
+.navbar-nav {
+	.nav-link {
+		color: $linksColor;
+	}
+}
+
+.app-header {
+	background-color: white;
+	height: 6.5625rem;
+
+	&.navbar {
+		justify-content: initial;
+		padding-top: 2.5%;
+		padding-bottom: 2.5%;
+		box-shadow: 1px 1px 1px 1px $shadowColor;
+
+		&.landing-header {
+			box-shadow: none;
+		}
+	}
+
+	.navbar-brand {
+		width: initial;
+		height: initial;
+		// flex: 0.2;
+	}
+}

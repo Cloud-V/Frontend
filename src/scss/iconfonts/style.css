@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?7hcy27');
+  src:  url('fonts/icomoon.eot?7hcy27#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?7hcy27') format('truetype'),
+    url('fonts/icomoon.woff?7hcy27') format('woff'),
+    url('fonts/icomoon.svg?7hcy27#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Watches:before {
+  content: "\e915";
+  color: #fff;
+}
+.icon-Certified .path1:before {
+  content: "\e911";
+  color: rgb(57, 179, 214);
+}
+.icon-Certified .path2:before {
+  content: "\e912";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-Favorites:before {
+  content: "\e913";
+  color: #fff;
+}
+.icon-Watch:before {
+  content: "\e914";
+  color: #fff;
+}
+.icon-Clone:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-Delete:before {
+  content: "\e901";
+  color: #fff;
+}
+.icon-Download:before {
+  content: "\e902";
+  color: #fff;
+}
+.icon-Edit:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-GitHub:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-GooglePlus:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-Logo:before {
+  content: "\e906";
+  color: #3dd6ff;
+}
+.icon-LogoIcon:before {
+  content: "\e907";
+  color: #3dd6ff;
+}
+.icon-LogoText:before {
+  content: "\e908";
+}
+.icon-Publish:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-Settings:before {
+  content: "\e90a";
+  color: #fff;
+}
+.icon-Simulate:before {
+  content: "\e90b";
+  color: #fff;
+}
+.icon-Star:before {
+  content: "\e90c";
+  color: #fff;
+}
+.icon-Synthesis:before {
+  content: "\e90d";
+  color: #fff;
+}
+.icon-Validate:before {
+  content: "\e90e";
+  color: #fff;
+}
+.icon-View:before {
+  content: "\e90f";
+  color: #fff;
+}
+.icon-Workspace:before {
+  content: "\e910";
+  color: #fff;
+}
