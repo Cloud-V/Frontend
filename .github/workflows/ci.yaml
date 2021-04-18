@@ -1,0 +1,43 @@
+name: CI
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  deploy_frontend:
+    name: "Deploy Frontend"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    - name: Install Dependencies
+      run: |
+        yarn
+    - name: Build
+      env:
+        NODE_PATH: src
+        REACT_APP_PROTOCOL: https
+        REACT_APP_PORT: '443'
+        REACT_APP_ENV: production
+        NODE_ENV: production
+        FRONTEND_DISTRIBUTION_ID: ${{ secrets.FRONTEND_DISTRIBUTION_ID }}
+        FRONTEND_S3_BUCKET: ${{ secrets.FRONTEND_S3_BUCKET }}
+        REACT_APP_GA_TRACKING_ID: ${{ secrets.REACT_APP_GA_TRACKING_ID }}
+        REACT_APP_GITHUB_CLIENT_ID: ${{ secrets.REACT_APP_GITHUB_CLIENT_ID }}
+        REACT_APP_GOOGLE_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}
+        REACT_APP_HOST: ${{ secrets.REACT_APP_HOST }}
+        REACT_APP_VAPID_PUBLIC: ${{ secrets.REACT_APP_VAPID_PUBLIC }}
+      run: |
+        yarn run build
+    - name: Deploy to S3
+      env:
+        AWS_PAGER: ''
+      run: |
+        cd build;
+        aws s3 sync --delete . s3://${{ secrets.FRONTEND_S3_BUCKET }}
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.FRONTEND_DISTRIBUTION_ID }} --paths /index.html /manifest.json
+        

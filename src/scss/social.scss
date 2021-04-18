@@ -1,0 +1,48 @@
+@import "variables"; // Import styles
+@import "functions"; // Import styles
+
+.sm-signin {
+	background: white;
+	color: #444 !important;
+	height: 66px;
+	border-radius: 0.25rem;
+	border: thin solid #888;
+	white-space: nowrap;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 150px;
+	.icon {
+		width: auto;
+		height: 80%;
+		padding-left: 2rem;
+	}
+	span.name {
+		vertical-align: middle;
+		padding-left: pxToRem(16);
+		padding-right: pxToRem(42);
+		font-size: 1.2rem;
+		font-weight: bold;
+		font-family: 'Roboto', sans-serif;
+	}
+}
+
+#gsignin {
+	background: white;
+	color: #444 !important;
+}
+
+#ghsignin {
+	background: black;
+	color: #ddd !important;
+}
+
+.social-enabled:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px 1px grey;
+}
+
+.social-disabled:hover {
+	cursor: not-allowed;
+	box-shadow: 1px 1px 1px grey;
+}
