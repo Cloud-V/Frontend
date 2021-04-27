@@ -2,7 +2,7 @@
 This is the frontend for [Cloud V](https://github.com/Cloud-V/Cloud-V). It is based on React 16.
 
 # Dependencies
-* Node 12. You may want to install it using [tj/n](https://github.com/tj/n)
+* Node 14. You may want to install it using [tj/n](https://github.com/tj/n)
 * yarn
 
 To install node.js dependencies, just invoke `yarn`.
