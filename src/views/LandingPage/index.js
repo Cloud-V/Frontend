@@ -14,7 +14,7 @@ import {
 	Row
 } from 'reactstrap';
 import Parallax from 'parallax-js';
-import { GSignin, GHSignin } from 'partials/SocialButtons';
+import { /* GSignin, */ GHSignin } from 'partials/SocialButtons';
 
 import Clouds from './Clouds';
 
