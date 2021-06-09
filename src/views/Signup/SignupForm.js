@@ -132,8 +132,7 @@ class LoginFrom extends Component {
 			handleSubmit,
 			submitting
 		} = this.props;
-		console.log('here awaiting submission')
-		console.log('token: ', this.state.token)
+		const captcha_site = process.env.REACT_APP_CAPTCHA_SITE
 		return (
 			<Form className="auth-form pt-2 pb-2" onSubmit={handleSubmit(this.handleFormSubmit)}>
 				<Field
@@ -165,7 +164,7 @@ class LoginFrom extends Component {
 					autoComplete="new-password"
 				/>
 				<HCaptcha
-					sitekey="c1f2be6a-2c93-426a-b115-92836796d3e5"
+					sitekey={captcha_site}
 					onVerify={captcha_token => this.setState({ token: captcha_token })}
 					onExpire={e => this.setState({ token: '' })}
 				/>

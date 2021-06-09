@@ -57,10 +57,7 @@ class Signup extends Component {
 	}
 	signup(data) {
 		console.log(data)
-		const username = data.username;
-		const password = data.password;
-		const email = data.email;
-		const captcha_token = data.captcha_token
+		const { username, password, email, captcha_token } = data
 		console.log(captcha_token)
 		return this.props.signup({
 			username,
