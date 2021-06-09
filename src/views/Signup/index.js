@@ -56,13 +56,17 @@ class Signup extends Component {
 
 	}
 	signup(data) {
-		const username = data.get('username');
-		const password = data.get('password');
-		const email = data.get('email');
+		console.log(data)
+		const username = data.username;
+		const password = data.password;
+		const email = data.email;
+		const captcha_token = data.captcha_token
+		console.log(captcha_token)
 		return this.props.signup({
 			username,
 			password,
-			email
+			email,
+			captcha_token
 		});
 	}
 	render() {
@@ -91,9 +95,9 @@ class Signup extends Component {
 						<Col xl="4" lg="5" md="8" className="auth d-flex justify-content-center align-items-center flex-column">
 							<div className="auth-section w-100 auth-logo">
 								<Col className="d-flex mr-0 mb-4 justify-content-center align-items-center flex-column">
-										<div className="w-100 text-center mt-5">
-											<h3>Create an account</h3>
-										</div>
+									<div className="w-100 text-center mt-5">
+										<h3>Create an account</h3>
+									</div>
 								</Col>
 							</div>
 							<div className="auth-section w-100 auth-box">

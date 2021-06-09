@@ -7,6 +7,9 @@ import {
 	reduxForm
 } from 'redux-form/immutable';
 import { Link } from 'react-router-dom';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+
+
 import {
 	Form,
 	FormGroup,
@@ -21,6 +24,7 @@ import {
 	usernameRegex,
 	passwordRegex
 } from '../../constants.js';
+import { skipPartiallyEmittedExpressions } from 'typescript';
 
 const validate = values => {
 	const errors = {};
@@ -84,30 +88,54 @@ class PasswordField extends Component {
 		return (<FormGroup>
 			<Label className="w-100">{label}</Label>
 			<PasswordMask
-							{...input}
-							id={input.name}
-							className="pwd-mask"
-							inputClassName="form-control"
-							autoComplete={autoComplete || ''}
-							useVendorStyles={false}
-							placeholder={placeholder || ''}
-							showButtonContent={<i className="fa fa-eye toggle-pwd-badge"></i>}
-							hideButtonContent={<i className="fa fa-eye-slash toggle-pwd-badge"></i>}
-							/>
+				{...input}
+				id={input.name}
+				className="pwd-mask"
+				inputClassName="form-control"
+				autoComplete={autoComplete || ''}
+				useVendorStyles={false}
+				placeholder={placeholder || ''}
+				showButtonContent={<i className="fa fa-eye toggle-pwd-badge"></i>}
+				hideButtonContent={<i className="fa fa-eye-slash toggle-pwd-badge"></i>}
+			/>
 			{touched && error && <div className="form-field-error">{error}</div>}
 		</FormGroup>);
 	}
 }
 
+
 class LoginFrom extends Component {
+	state = {
+		token: ""
+	}
+
+
+	handleFormSubmit = (data) => {
+		console.log('submission recieved')
+		console.log(data)
+		setTimeout(() => { console.log(data); }, 2000);
+		const username = data.get('username');
+		const password = data.get('password');
+		const email = data.get('email');
+		const captcha_token = this.state.token
+		console.log('loaaaaaaaaaaaaded')
+		return this.props.onSubmit({
+			username,
+			password,
+			email,
+			captcha_token
+		});
+	}
+
 	render() {
 		const {
 			handleSubmit,
 			submitting
 		} = this.props;
-
+		console.log('here awaiting submission')
+		console.log('token: ', this.state.token)
 		return (
-			<Form className="auth-form pt-2 pb-2" onSubmit={handleSubmit}>
+			<Form className="auth-form pt-2 pb-2" onSubmit={handleSubmit(this.handleFormSubmit)}>
 				<Field
 					name="email"
 					type="email"
@@ -136,6 +164,12 @@ class LoginFrom extends Component {
 					label="Confirm Password"
 					autoComplete="new-password"
 				/>
+				<HCaptcha
+					sitekey="c1f2be6a-2c93-426a-b115-92836796d3e5"
+					onVerify={captcha_token => this.setState({ token: captcha_token })}
+					onExpire={e => this.setState({ token: '' })}
+				/>
+
 				<div className="w-100 d-flex justify-content-between align-items-center">
 					<Button type="submit" className="action-button w-50 d-flex justify-content-center align-items-center mr-1" disabled={submitting}>REGISTER</Button>
 					<div className="pull-right">Have an account? <Link className="plain-link black ml-1" to={'/login'}><b>Log in</b></Link></div>
