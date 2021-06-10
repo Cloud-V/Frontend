@@ -110,14 +110,10 @@ class LoginFrom extends Component {
 
 
 	handleFormSubmit = (data) => {
-		console.log('submission recieved')
-		console.log(data)
-		setTimeout(() => { console.log(data); }, 2000);
 		const username = data.get('username');
 		const password = data.get('password');
 		const email = data.get('email');
 		const captcha_token = this.state.token
-		console.log('loaaaaaaaaaaaaded')
 		return this.props.onSubmit({
 			username,
 			password,

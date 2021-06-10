@@ -61,11 +61,12 @@ class Login extends Component {
 
 	}
 	login(data) {
-		const username = data.get('username');
-		const password = data.get('password');
+		const { username, password, captcha_token } = data
+
 		return this.props.login({
 			username,
-			password
+			password,
+			captcha_token
 		});
 	}
 	render() {
@@ -93,9 +94,9 @@ class Login extends Component {
 						<Col xl="4" lg="5" md="8" className="auth d-flex justify-content-center align-items-center flex-column">
 							<div className="auth-section w-100 auth-logo center-all">
 								<Col md="12" sm="4" className="d-flex mr-0 mb-4 justify-content-center align-items-center flex-column">
-										<div className="w-100 text-center mt-5">
-											<h3>Log in to Cloud V</h3>
-										</div>
+									<div className="w-100 text-center mt-5">
+										<h3>Log in to Cloud V</h3>
+									</div>
 								</Col>
 							</div>
 							<div className="auth-section w-100 auth-box">

@@ -15,6 +15,8 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import PasswordMask from 'modules/react-password-mask';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+
 
 const validate = values => {
 	const errors = {};
@@ -66,32 +68,47 @@ class PasswordField extends Component {
 		return (<FormGroup>
 			<Label className="w-100">{label} <div className="forgot-password pull-right"><Link tabIndex={4} to="/forgot">Forgot Password?</Link></div></Label>
 			<PasswordMask
-							{...input}
-							id={input.name}
-							className="pwd-mask"
-							inputClassName="form-control"
-							autoComplete={autoComplete || ''}
-							useVendorStyles={false}
-							placeholder={placeholder || ''}
-							showButtonContent={<i className="fa fa-eye toggle-pwd-badge"></i>}
-							hideButtonContent={<i className="fa fa-eye-slash toggle-pwd-badge"></i>}
-							tabIndex={tabIndex}
-							showHidTabIndex={10}
-							/>
+				{...input}
+				id={input.name}
+				className="pwd-mask"
+				inputClassName="form-control"
+				autoComplete={autoComplete || ''}
+				useVendorStyles={false}
+				placeholder={placeholder || ''}
+				showButtonContent={<i className="fa fa-eye toggle-pwd-badge"></i>}
+				hideButtonContent={<i className="fa fa-eye-slash toggle-pwd-badge"></i>}
+				tabIndex={tabIndex}
+				showHidTabIndex={10}
+			/>
 			{touched && error && <div className="form-field-error">{error}</div>}
 		</FormGroup>);
 	}
 }
 
 class LoginFrom extends Component {
+	state = {
+		token: ""
+	}
+
+	handleFormSubmit = (data) => {
+		const username = data.get('username');
+		const password = data.get('password');
+		const captcha_token = this.state.token
+		return this.props.onSubmit({
+			username,
+			password,
+			captcha_token
+		});
+	}
 	render() {
 		const {
 			handleSubmit,
 			submitting
 		} = this.props;
+		const captcha_site = process.env.REACT_APP_CAPTCHA_SITE
 
 		return (
-			<Form className="auth-form" onSubmit={handleSubmit}>
+			<Form className="auth-form" onSubmit={handleSubmit(this.handleFormSubmit)}>
 				<Field
 					name="username"
 					type="text"
@@ -107,6 +124,11 @@ class LoginFrom extends Component {
 					label="Password"
 					autoComplete="current-password"
 					tabIndex={2}
+				/>
+				<HCaptcha
+					sitekey={captcha_site}
+					onVerify={captcha_token => this.setState({ token: captcha_token })}
+					onExpire={e => this.setState({ token: '' })}
 				/>
 				<div className="w-100 d-flex justify-content-between align-items-center">
 					<Button tabIndex={3} type="submit" className="action-button" disabled={submitting}>Log in</Button>
