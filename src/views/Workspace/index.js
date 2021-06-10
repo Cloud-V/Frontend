@@ -671,6 +671,9 @@ class Workspace extends Component {
 		if (action.error && action.error.length) {
 			return this.toastError(action.error);
 		}
+		else{
+			await this.props.updateSetIsTopModule();
+		}
 	}
 	async onConvertToVerilog(selectedTreeNode, evt) {
 		const { files, repository } = this.props;
@@ -1941,6 +1944,8 @@ class Workspace extends Component {
 	}
 
 	render() {
+	console.log(this.props.files.get("isSetTopModule"))
+
 		const { repository, library } = this.props;
 		if (repository.get("statusCode") === 404) {
 			return <Page404 />;

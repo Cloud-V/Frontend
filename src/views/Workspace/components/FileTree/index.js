@@ -431,6 +431,7 @@ class FileTree extends Component {
 		// const isIncludedH = isOneSelected && targetNode.type === "h";
 		// const isExcludedH = isOneSelected && targetNode.type === "exH";
 		//const isAnchorFolder = isBuildFolder || isSWFolder || isSWHexFolder;
+		
 
 		return (
 			<ContextMenu
