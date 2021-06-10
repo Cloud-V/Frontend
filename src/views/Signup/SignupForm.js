@@ -24,7 +24,6 @@ import {
 	usernameRegex,
 	passwordRegex
 } from '../../constants.js';
-import { skipPartiallyEmittedExpressions } from 'typescript';
 
 const validate = values => {
 	const errors = {};
