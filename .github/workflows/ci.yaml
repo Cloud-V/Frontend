@@ -31,6 +31,7 @@ jobs:
         REACT_APP_GOOGLE_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}
         REACT_APP_HOST: ${{ secrets.REACT_APP_HOST }}
         REACT_APP_VAPID_PUBLIC: ${{ secrets.REACT_APP_VAPID_PUBLIC }}
+        REACT_APP_CAPTCHA_SITE: ${{ secrets.REACT_APP_CAPTCHA_SITE }}
       run: yarn run build
     - name: Extract Tag
       run: bash .github/get_tag.sh
