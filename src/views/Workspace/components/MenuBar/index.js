@@ -450,6 +450,7 @@ class MenuBar extends Component {
 				)
 			);
 		}
+
 		return (
 			menu.visible && (
 				<MenuItem
@@ -536,7 +537,9 @@ class MenuBar extends Component {
 					<MenuItem
 						key="synthesize"
 						disabled={
-							!this.props.topModule.length ||
+							
+							(!this.props.topModule.length &&
+							!this.props.files.get("isSetTopModule")) ||
 							this.props.isSynthesizing
 						}
 						title={

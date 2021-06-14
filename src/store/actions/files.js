@@ -19,11 +19,21 @@ export const parseVerilogModules = ({ node, topModule, topModuleEntry }) => {
 		return Promise.resolve();
 	};
 };
+
 export const closeEditorTab = ({ node }) => {
 	return dispatch => {
 		dispatch({
 			type: ActionNames.CLOSE_EDITOR_TAB,
 			extras: node
+		});
+		return Promise.resolve();
+	};
+};
+
+export const updateSetIsTopModule = () => {
+	return dispatch => {
+		dispatch({
+			type: ActionNames.UPDATE_SETISTOPMODULE,
 		});
 		return Promise.resolve();
 	};

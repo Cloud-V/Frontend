@@ -23,7 +23,9 @@ const initialState = Map({
 	data: List([]),
 	status: "",
 	error: "",
-	statusCode: 0
+	statusCode: 0,
+	isSetTopModule:false
+	
 });
 
 const updateNodes = (state, updater) => {
@@ -139,6 +141,12 @@ const reducer = (state = initialState, action) => {
 					: el.set("active", true)
 			);
 		}
+
+		case ActionNames.UPDATE_SETISTOPMODULE: {
+			return state.set("isSetTopModule", true)
+		}
+
+
 		case generateInProgressActionTypeName(ActionNames.LOAD_FILE): {
 			return updateNode(state, action.extras.node, el =>
 				el.set("status", "loading")
