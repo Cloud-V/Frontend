@@ -12,6 +12,7 @@
     "@coreui/icons": "0.2.0",
     "@coreui/react": "^2.5.8",
     "@fortawesome/fontawesome-free": "^5.6.1",
+    "@hcaptcha/react-hcaptcha": "^0.3.6",
     "axios": "^0.18.1",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
