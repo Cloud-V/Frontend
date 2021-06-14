@@ -12,7 +12,8 @@ import "flag-icon-css/css/flag-icon.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "simple-line-icons/css/simple-line-icons.css";
 import "rc-tree-select/assets/index.css";
-import "normalize.css";
+import "normalize.css"; 
+
 import "./scss/style.css";
 
 import App from "./App";

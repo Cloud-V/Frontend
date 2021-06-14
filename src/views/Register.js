@@ -28,13 +28,13 @@ class Register extends Component {
 											<i className="icon-user"></i>
 										</InputGroupText>
 									</InputGroupAddon>
-									<Input type="text" placeholder="Username"/>
+									<Input type="text" placeholder="Username" />
 								</InputGroup>
 								<InputGroup className="mb-3">
 									<InputGroupAddon addonType="prepend">
 										<InputGroupText>@</InputGroupText>
 									</InputGroupAddon>
-									<Input type="text" placeholder="Email"/>
+									<Input type="text" placeholder="Email" />
 								</InputGroup>
 								<InputGroup className="mb-3">
 									<InputGroupAddon addonType="prepend">
@@ -42,7 +42,7 @@ class Register extends Component {
 											<i className="icon-lock"></i>
 										</InputGroupText>
 									</InputGroupAddon>
-									<Input type="password" placeholder="Password"/>
+									<Input type="password" placeholder="Password" />
 								</InputGroup>
 								<InputGroup className="mb-4">
 									<InputGroupAddon addonType="prepend">
@@ -50,7 +50,7 @@ class Register extends Component {
 											<i className="icon-lock"></i>
 										</InputGroupText>
 									</InputGroupAddon>
-									<Input type="password" placeholder="Repeat password"/>
+									<Input type="password" placeholder="Repeat password" />
 								</InputGroup>
 								<Button color="success" block="block">Create Account</Button>
 							</CardBody>
