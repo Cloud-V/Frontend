@@ -114,7 +114,6 @@ export const createDownloadAPI = action => dispatch => {
 const createAPI = action => dispatch => {
 	const { method, params, type, noLoginRedirect } = action;
 	const extras = action.extras || {};
-	console.log(params)
 	const inProgressType = generateInProgressActionTypeName(type);
 	const inProgressAction = {
 		type: inProgressType,
