@@ -112,7 +112,6 @@ class ForgotPassword extends Component {
 												errorMessage={reset.get('error').toString()}
 												onSubmit={e => {
 													const { username, captcha_token } = e
-													console.log(username, captcha_token)
 													this.props.forgotPassword({
 														username,
 														captcha_token
