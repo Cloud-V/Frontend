@@ -15,6 +15,7 @@ import {
 	Input,
 	Button
 } from 'reactstrap';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const validate = values => {
 	const errors = {};
@@ -39,7 +40,7 @@ class RenderField extends Component {
 			autoComplete
 		} = this.props;
 
-		return (<FormGroup className={type === 'hidden'? 'hidden-group': ''}>
+		return (<FormGroup className={type === 'hidden' ? 'hidden-group' : ''}>
 			<Label>{label}</Label>
 			<Input {...input} type={type} autoComplete={autoComplete || ''} placeholder={placeholder || ''} />
 			{touched && error && <div className="form-field-error">{error}</div>}
@@ -48,6 +49,20 @@ class RenderField extends Component {
 }
 
 class ForgotPasswordForm extends Component {
+	state = {
+		token: ""
+	}
+
+
+	handleFormSubmit = (data) => {
+		const username = data.get('username');
+		const captcha_token = this.state.token
+		return this.props.onSubmit({
+			username,
+			captcha_token
+		});
+	}
+
 	render() {
 		const {
 			handleSubmit,
@@ -56,8 +71,10 @@ class ForgotPasswordForm extends Component {
 			errorMessage
 		} = this.props;
 		const resetRequestFailed = status === 'action-error';
+		const captcha_site = process.env.REACT_APP_CAPTCHA_SITE
+
 		return (
-			<Form className="profile-form w-100 pl-4 pr-4 pt-0 pb-2" onSubmit={handleSubmit}>
+			<Form className="profile-form w-100 pl-4 pr-4 pt-0 pb-2" onSubmit={handleSubmit(this.handleFormSubmit)}>
 				{resetRequestFailed && <Alert color="danger">{errorMessage}</Alert>}
 				<Field
 					name="username"
@@ -65,7 +82,12 @@ class ForgotPasswordForm extends Component {
 					component={RenderField}
 					authComplete="username"
 					label="Username or E-mail"
-					/>
+				/>
+				<HCaptcha
+					sitekey={captcha_site}
+					onVerify={captcha_token => this.setState({ token: captcha_token })}
+					onExpire={e => this.setState({ token: '' })}
+				/>
 				<div className="w-100 d-flex justify-content-between align-items-center">
 					<Button type="submit" className="action-button w-75 mr-2 d-flex justify-content-center align-items-center" disabled={submitting}>
 						SEND RESET E-MAIL
