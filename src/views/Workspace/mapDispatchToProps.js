@@ -22,7 +22,8 @@ import {
 	downloadFile,
 	openEditorTab,
 	parseVerilogModules,
-	selectEditorTab
+	selectEditorTab,
+	updateSetIsTopModule
 } from "store/actions/files";
 import { addLogs, setLogs, setLogTab } from "store/actions/workspace";
 
@@ -76,6 +77,11 @@ export default dispatch => {
 					matches
 				})
 			),
+			updateSetIsTopModule: () =>
+			dispatch(
+				updateSetIsTopModule()
+			),
+			
 		moveFiles: ({ ownerName, repoName, nodeIds, target, matches }) =>
 			dispatch(
 				moveFiles({
