@@ -44,11 +44,10 @@ export const createDownloadAPI = action => dispatch => {
 	try {
 		currentUser = JSON.parse(Storage.get(StorageKeys.User));
 		if (currentUser && currentUser.token) {
-			params[configIndex].headers.Authorization = `Bearer ${
-				currentUser.token
-			}`;
+			params[configIndex].headers.Authorization = `Bearer ${currentUser.token
+				}`;
 		}
-	} catch (e) {}
+	} catch (e) { }
 
 	return http[method](...params)
 		.then(response => {
@@ -115,7 +114,6 @@ export const createDownloadAPI = action => dispatch => {
 const createAPI = action => dispatch => {
 	const { method, params, type, noLoginRedirect } = action;
 	const extras = action.extras || {};
-
 	const inProgressType = generateInProgressActionTypeName(type);
 	const inProgressAction = {
 		type: inProgressType,
@@ -135,20 +133,18 @@ const createAPI = action => dispatch => {
 	try {
 		currentUser = JSON.parse(Storage.get(StorageKeys.User));
 		if (currentUser && currentUser.token) {
-			params[configIndex].headers.Authorization = `Bearer ${
-				currentUser.token
-			}`;
+			params[configIndex].headers.Authorization = `Bearer ${currentUser.token
+				}`;
 		}
-	} catch (e) {}
+	} catch (e) { }
 	if (!currentUser) {
 		try {
 			currentTrialUser = JSON.parse(Storage.get(StorageKeys.TrialUser));
 			if (currentTrialUser && currentTrialUser.token) {
-				params[configIndex].headers.Authorization = `Bearer ${
-					currentTrialUser.token
-				}`;
+				params[configIndex].headers.Authorization = `Bearer ${currentTrialUser.token
+					}`;
 			}
-		} catch (e) {}
+		} catch (e) { }
 	}
 
 	const successType = generateSuccessActionTypeName(type);
@@ -157,7 +153,7 @@ const createAPI = action => dispatch => {
 	return http[method.toLowerCase()](...params)
 		.then(result => {
 			const { status } = result;
-			
+
 			ReactGA.event({
 				category: "API",
 				action: type
@@ -194,7 +190,7 @@ const createAPI = action => dispatch => {
 				if (parsedError.error) {
 					error = parsedError.error;
 				}
-			} catch (err) {}
+			} catch (err) { }
 			if (status === 401) {
 				if (!noLoginRedirect) {
 					dispatch(logout())

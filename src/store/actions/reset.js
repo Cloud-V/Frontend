@@ -5,14 +5,17 @@ import {
 import createAPI from '../utils/createAPI';
 
 export const forgotPassword = ({
-	username
-}) => createAPI({
-	method: 'post',
-	type: ActionNames.FORGOT_PASSWORD,
-	params: [URLs.Forgot, {
-		username
-	}]
-});
+	username,
+	captcha_token
+}) =>
+	createAPI({
+		method: 'post',
+		type: ActionNames.FORGOT_PASSWORD,
+		params: [URLs.Forgot, {
+			username,
+			captcha_token
+		}]
+	});
 
 export const initForgotPassword = () => {
 	return dispatch => {
