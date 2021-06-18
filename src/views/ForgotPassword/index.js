@@ -40,9 +40,11 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		forgotPassword: ({
-			username
+			username,
+			captcha_token
 		}) => dispatch(forgotPassword({
-			username
+			username,
+			captcha_token
 		})),
 		initForgotPassword: () => dispatch(initForgotPassword())
 	};
@@ -58,6 +60,12 @@ class ForgotPassword extends Component {
 	componentDidMount() {
 		this.props.initForgotPassword()
 	}
+
+
+
+
+
+
 	render() {
 		const {
 			reset,
@@ -83,29 +91,34 @@ class ForgotPassword extends Component {
 					<Col xl="4" lg="5" md="8" className="d-flex justify-content-center align-items-center flex-column">
 						<div className="auth-section w-100 auth-logo">
 							<Col className="d-flex mr-0 mb-4 justify-content-center align-items-center flex-column">
-									<div className="w-100 text-center">
-										<h3>Forgot Password</h3>
-									</div>
+								<div className="w-100 text-center">
+									<h3>Forgot Password</h3>
+								</div>
 							</Col>
 						</div>
 						<div className="w-100 auth-box">
 							{
-								(reset.get('status') === 'action-success')?
+								(reset.get('status') === 'action-success') ?
 									(<Alert color="success">
 										Check your email for a password reset link.
-										<br/>If it doesn’t show up within a few minutes, please check your spam folder.
-										<br/><Link to={'/login'}>Login Page</Link>
+										<br />If it doesn’t show up within a few minutes, please check your spam folder.
+										<br /><Link to={'/login'}>Login Page</Link>
 									</Alert>)
 									: (<Card className="w-100">
-											<CardBody className="profile-card w-100 d-flex flex-column justify-content-start align-items-center">
-												<ForgotPasswordForm
-															reset={reset}
-															status={reset.get('status')}
-															errorMessage={reset.get('error').toString()}
-															onSubmit={e => {
-																this.props.forgotPassword(e.toJS())
-															}} />
-											</CardBody>
+										<CardBody className="profile-card w-100 d-flex flex-column justify-content-start align-items-center">
+											<ForgotPasswordForm
+												reset={reset}
+												status={reset.get('status')}
+												errorMessage={reset.get('error').toString()}
+												onSubmit={e => {
+													const { username, captcha_token } = e
+													this.props.forgotPassword({
+														username,
+														captcha_token
+													})
+												}} />
+
+										</CardBody>
 									</Card>)
 							}
 						</div>
