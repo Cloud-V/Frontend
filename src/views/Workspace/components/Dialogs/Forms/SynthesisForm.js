@@ -68,7 +68,7 @@ class RenderField extends Component {
 }
 
 function renderOptions(options) {
-	return function({ label, input, disabled, meta: { touched, error } }) {
+	return function ({ label, input, disabled, meta: { touched, error } }) {
 		return (
 			<React.Fragment>
 				<Label>{label}</Label>
@@ -157,7 +157,7 @@ class RenderTreeField extends Component {
 						}
 						defaultExpandedKeys={[
 							...(Array.isArray(this.state.treeData) &&
-							this.state.treeData.length
+								this.state.treeData.length
 								? [this.state.treeData[0].key]
 								: [])
 						]}
@@ -201,7 +201,7 @@ class SynthesisForm extends Component {
 			errorMessage,
 			strategies,
 			stdcells,
-			execTypes
+			// execTypes
 		} = this.props;
 
 		return (
@@ -220,74 +220,89 @@ class SynthesisForm extends Component {
 					component={renderOptions(stdcells)}
 				/>
 				<br />
-				<Field
-					name="constraints"
-					type="checkbox"
-					component={RenderField}
-					label={"Use Constraints File"}
-					onChange={evt =>
-						this.setState({ [evt.target.name]: evt.target.checked })
-					}
-				/>
-				<Field
-					name="dcf"
-					type="tree"
-					disabled={!this.state.constraints}
-					component={RenderTreeField}
-					treeData={dcfTree}
-					label="Constraints File:"
-				/>
-				<Field
-					name="explore"
-					type="checkbox"
-					component={RenderField}
-					label={"Explore"}
-					onChange={evt =>
-						this.setState({ [evt.target.name]: evt.target.checked })
-					}
-				/>
-				<Field
-					name="strategy"
-					label="Synthesis Strategy: "
-					type="select"
-					disabled={this.state.explore}
-					component={renderOptions(strategies)}
-				/>
 
-				<br />
-				<Field
-					name="sizing"
-					type="checkbox"
-					component={RenderField}
-					label={"Sizing"}
-				/>
-				<Field
-					name="buffering"
-					type="checkbox"
-					component={RenderField}
-					label={"Buffering"}
-				/>
-				<Field
-					name="timing"
-					type="checkbox"
-					component={RenderField}
-					disabled={this.state.explore}
-					label={"Timing"}
-				/>
-				<Field
-					name="schematic"
-					type="checkbox"
-					component={RenderField}
-					disabled={this.state.explore}
-					label={"Schematic"}
-				/>
-				<br />
-				<Field
+				<div class="collapsable_tabs">
+					<div class="collapsable_tab">
+						<input type="checkbox" id="collapsable_chck1" />
+						<label class="collapsable_tab-label" for="collapsable_chck1">Advanced</label>
+						<div class="collapsable_tab-content">
+
+
+
+								<Field
+									name="constraints"
+									type="checkbox"
+									component={RenderField}
+									label={"Use Constraints File"}
+									onChange={evt =>
+										this.setState({ [evt.target.name]: evt.target.checked })
+									}
+								/>
+								<Field
+									name="dcf"
+									type="tree"
+									disabled={!this.state.constraints}
+									component={RenderTreeField}
+									treeData={dcfTree}
+									label="Constraints File:"
+								/>
+								<Field
+									name="explore"
+									type="checkbox"
+									component={RenderField}
+									label={"Explore"}
+									onChange={evt =>
+										this.setState({ [evt.target.name]: evt.target.checked })
+									}
+								/>
+								<Field
+									name="strategy"
+									label="Synthesis Strategy: "
+									type="select"
+									disabled={this.state.explore}
+									component={renderOptions(strategies)}
+								/>
+
+								<br />
+								<Field
+									name="sizing"
+									type="checkbox"
+									component={RenderField}
+									label={"Sizing"}
+								/>
+								<Field
+									name="buffering"
+									type="checkbox"
+									component={RenderField}
+									label={"Buffering"}
+								/>
+								<Field
+									name="timing"
+									type="checkbox"
+									component={RenderField}
+									disabled={this.state.explore}
+									label={"Timing"}
+								/>
+								<Field
+									name="schematic"
+									type="checkbox"
+									component={RenderField}
+									disabled={this.state.explore}
+									label={"Schematic"}
+								/>
+								<br />
+
+
+						</div>
+					</div>
+				</div>
+
+				{/* <Field
 					name="synthType"
 					label="Synthesis Execution Type: "
 					type="select"
 					component={renderOptions(execTypes)}
-				/>
+				/> */}
 				<div className="w-100 d-flex justify-content-end align-items-center mt-3">
 					<Button
 						className="action-button cancel-button pull-right mr-2"
