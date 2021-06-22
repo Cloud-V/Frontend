@@ -271,7 +271,7 @@ class Dashboard extends Component {
 								error={this.props.repository.get('error')}
 								/>
 					</TabPane>
-					<TabPane className="h-100" tab="Watching" key="watching">
+					{/* <TabPane className="h-100" tab="Watching" key="watching">
 						<Repositories
 								title="Watching"
 								hasCreateButton={false}
@@ -287,7 +287,7 @@ class Dashboard extends Component {
 								status={this.props.repository.get('status')}
 								error={this.props.repository.get('error')}
 								/>
-					</TabPane>
+					</TabPane> */}
 				</Tabs>
 			</div>
 		);
