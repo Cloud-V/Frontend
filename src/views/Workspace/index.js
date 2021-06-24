@@ -1944,7 +1944,6 @@ class Workspace extends Component {
 	}
 
 	render() {
-	console.log(this.props.files.get("isSetTopModule"))
 
 		const { repository, library } = this.props;
 		if (repository.get("statusCode") === 404) {

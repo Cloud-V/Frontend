@@ -16,7 +16,10 @@ class WorkspaceSettingsDialog extends Component {
 		const settings = this.props.repository
 			.get("data")
 			.get("settings");
-		const currentFontSize = settings["fontSize"];
+		const currentFontSize = this.props.repository
+		.get("data")
+		.get("settings").get("fontSize");
+	
 		return (
 			<BaseDialog
 				{...this.props}
