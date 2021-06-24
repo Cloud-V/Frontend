@@ -110,8 +110,6 @@ class WorkspaceForm extends Component {
 			errorMessage
 		} = this.props;
 
-		console.log(this.props.defaultFontsize)
-		// console.log(this.props.repository)
 
 		return (
 			<Form className="workspace-form" onSubmit={handleSubmit}>
