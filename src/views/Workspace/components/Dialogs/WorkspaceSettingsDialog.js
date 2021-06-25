@@ -13,9 +13,9 @@ const mapStateToProps = state => {
 
 class WorkspaceSettingsDialog extends Component {
 	render() {
-		const settings = this.props.repository
-			.get("data")
-			.get("settings");
+		// const settings = this.props.repository
+		// 	.get("data")
+		// 	.get("settings");
 		const currentFontSize = this.props.repository
 		.get("data")
 		.get("settings").get("fontSize");

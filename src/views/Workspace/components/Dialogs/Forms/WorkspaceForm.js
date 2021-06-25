@@ -113,7 +113,7 @@ class WorkspaceForm extends Component {
 
 		return (
 			<Form className="workspace-form" onSubmit={handleSubmit}>
-				{errorMessage && <Alert color="danger">{errorMessage}</Alert>}
+				{errorMessage && <Alert color="danger">{errorMessage}</Alert>} 
 				<Field
 					name="fontSize"
 					type="text"
