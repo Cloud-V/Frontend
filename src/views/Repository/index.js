@@ -541,7 +541,7 @@ class Repository extends Component {
 							isAdmin={isAdmin}
 						/>
 					</TabPane>
-					<TabPane className="h-100" tab="Versions" key="versions">
+					{/* <TabPane className="h-100" tab="Versions" key="versions">
 						<Versions
 							version={this.props.version}
 							versions={this.props.versions}
@@ -555,7 +555,7 @@ class Repository extends Component {
 							isOwner={isOwner}
 							isAdmin={isAdmin}
 						/>
-					</TabPane>
+					</TabPane> */}
 				</Tabs>
 			</div>
 		);
