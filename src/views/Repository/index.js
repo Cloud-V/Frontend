@@ -12,7 +12,7 @@ import ScrollableInkTabBar from "modules/rc-tabs/lib/ScrollableInkTabBar";
 import SquareSpinner from "partials/SquareSpinner";
 import RepositoryOverview from "./RepositoryOverview";
 import Contributors from "./Contributors";
-import Versions from "./Versions";
+// import Versions from "./Versions";
 import RepositorySettingsDialog from "partials/RepositorySettingsDialog";
 import ConfirmationDialog from "partials/ConfirmationDialog";
 import Status from "store/utils/status.js";
