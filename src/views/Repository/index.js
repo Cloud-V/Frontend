@@ -555,7 +555,7 @@ class Repository extends Component {
 							isOwner={isOwner}
 							isAdmin={isAdmin}
 						/>
-					</TabPane> */} 
+					</TabPane> */}
 				</Tabs>
 			</div>
 		);
