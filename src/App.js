@@ -160,6 +160,12 @@ class App extends Component {
 						   	}}
 						/>
 						<Route
+							path={"/fpga"}
+							exact={true}
+							name={"About"}
+							component={Pages.FPGA}
+						/>
+						<Route
 							path={"/tools"}
 							exact={true}
 							name={"Cloud V Tools"}

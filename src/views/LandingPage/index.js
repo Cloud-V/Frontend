@@ -14,7 +14,7 @@ import {
 	Row
 } from 'reactstrap';
 import Parallax from 'parallax-js';
-import { /* GSignin, */ GHSignin } from 'partials/SocialButtons';
+import {  GSignin, GHSignin } from 'partials/SocialButtons';
 
 import Clouds from './Clouds';
 
@@ -67,14 +67,13 @@ class LandingPage extends Component {
 						<h5 className="mb-4">Log in</h5>
 						<div className="d-flex landing-section-auth-buttons">
 								<GHSignin />
-							{/*
 							
-							<Col md="6" sm="12" className="mr-1">
+							<Col md="1" sm="12" className="mr-1">
 							</Col>
 							<Col md="6" sm="12" className="">
 								<GSignin />
 							</Col>
-							*/}
+							
 						</div>
 					</div>
 					<div className="landing-section landing-section-bottom cloudv-landing-footer d-flex flex-column align-items-center">
