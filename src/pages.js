@@ -10,6 +10,11 @@ function Loading() {
 	);
 }
 
+export const FPGA = Loadable({
+	loader: () => import("./views/FPGA"),
+	loading: Loading
+});
+
 export const Login = Loadable({
 	loader: () => import("./views/Login"),
 	loading: Loading
