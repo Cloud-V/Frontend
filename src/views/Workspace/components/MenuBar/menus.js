@@ -281,6 +281,6 @@ export const menuHelp = {
 		}
 	]
 };
-const menus = [menuFile, menuEdit, menuProject, menuPostSynthesis, menuHelp];
+const menus = [menuFile, menuEdit, menuProject, menuHelp];
 
 export default menus;

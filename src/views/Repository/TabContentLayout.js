@@ -95,7 +95,7 @@ export default class TabContentLayout extends Component {
 							</Col>
 						)}
 
-						{isOwner && (
+						{/* {isOwner && (
 							<Col xl="4" lg="4" md="4" sm="12">
 								<Button
 									title="Publish"
@@ -106,7 +106,7 @@ export default class TabContentLayout extends Component {
 									Publish
 								</Button>
 							</Col>
-						)}
+						)} */}
 						{isOwner && (
 							<Col xl="4" lg="4" md="4" sm="12">
 								<Button

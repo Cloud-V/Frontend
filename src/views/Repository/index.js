@@ -12,7 +12,7 @@ import ScrollableInkTabBar from "modules/rc-tabs/lib/ScrollableInkTabBar";
 import SquareSpinner from "partials/SquareSpinner";
 import RepositoryOverview from "./RepositoryOverview";
 import Contributors from "./Contributors";
-import Versions from "./Versions";
+// import Versions from "./Versions";
 import RepositorySettingsDialog from "partials/RepositorySettingsDialog";
 import ConfirmationDialog from "partials/ConfirmationDialog";
 import Status from "store/utils/status.js";
@@ -541,7 +541,7 @@ class Repository extends Component {
 							isAdmin={isAdmin}
 						/>
 					</TabPane>
-					<TabPane className="h-100" tab="Versions" key="versions">
+					{/* <TabPane className="h-100" tab="Versions" key="versions">
 						<Versions
 							version={this.props.version}
 							versions={this.props.versions}
@@ -555,7 +555,7 @@ class Repository extends Component {
 							isOwner={isOwner}
 							isAdmin={isAdmin}
 						/>
-					</TabPane>
+					</TabPane> */}
 				</Tabs>
 			</div>
 		);
