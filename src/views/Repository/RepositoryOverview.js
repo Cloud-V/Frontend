@@ -64,7 +64,7 @@ class RepositoryOverview extends Component {
 							onFormSubmit={this.props.onRepositoryClone}/>
 				<div className="filler filler-h-1 filler-border-top hide-left hide-right w-100"></div>
 				<div className="d-flex flex-column flex-md-row">
-					<div className="repository-detials-overview-actions col-lg-3 col-md-4 col-sm-12 ml-0 pl-0 pr-0">
+					<div className="repository-detials-overview-actions col-lg-4 col-md-4 col-sm-12 ml-0 pl-0 pr-0">
 						<Row className="repository-detials-overview-actions-button-wrapper mr-0 ml-0 mb-sm-2">
 							<Col xl="12" lg="12" md="12" sm="12">
 								<Button className="d-flex justify-content-between align-items-center w-100" onClick={this.props.onRepositoryWatch}>

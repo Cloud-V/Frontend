@@ -1,0 +1,9 @@
+{
+    "objects": [
+         { "type": "7seg", "visible": true
+         },
+         { "type": "pushbutton", "visible": true },
+         { "type": "switch", "visible": true },
+         { "type": "led", "visible": true }
+    ]
+}

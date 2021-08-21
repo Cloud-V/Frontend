@@ -1012,7 +1012,7 @@ body {
 }
 
 .action-button {
-    background-color: $actionColor;
+    background-color: $themeDark;
     color: white;
     width: 38%;
     height: 60px;
@@ -1021,7 +1021,7 @@ body {
     text-transform: uppercase;
     &:active,
     &:hover {
-        background-color: $activeActionColor !important;
+        background-color: $themeDarkDarken !important;
         color: white !important;
     }
     &:active,

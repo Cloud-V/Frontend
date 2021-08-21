@@ -6,7 +6,7 @@ import {
 	Field,
 	reduxForm
 } from 'redux-form/immutable';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {
 	Alert,
 	Form,
@@ -144,10 +144,10 @@ class ProfilePasswordForm extends Component {
 					autoComplete="new-password"
 				/>
 				<div className="w-100 d-flex justify-content-between align-items-center">
-					<Button type="submit" className="action-button w-75 mr-2 d-flex justify-content-center align-items-center" disabled={submitting}>
+					<Button type="submit" className="action-button w-50 mr-2 d-flex justify-content-center align-items-center" disabled={submitting}>
 						UPDATE PASSWORD
 					</Button>
-					<Link to={'/edit'} disabled={submitting}>Back</Link>
+					{/* <Link to={'/edit'} disabled={submitting}>Back</Link>  */}
 				</div>
 			</Form>
 		);

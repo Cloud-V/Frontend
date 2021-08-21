@@ -5,17 +5,17 @@ import Navbar from "partials/Navbar";
 import FPGAbuttons from "./FPGAbuttons";
 import FPGAswitch from "./FPGAswitch";
 import FPGAled from "./FPGAled";
+import data from "./fpgaData";
 
 class FPGA extends Component {
   constructor(props) {
     super(props);
     this.location = props.location;
+    let ledNumbers = 10;
+    this.state = { ledArray: Array(ledNumbers).fill(false), FPGAdata: data['objects'] };
   }
-
   render() {
-    let ledNumbers=10;
-    let ledArray = (Array(ledNumbers)).fill(false);
-    console.log(ledArray);
+    console.log(this.state.FPGAdata);
 
     const onTopFPGAbuttonClick = () => {
       console.log("Top Button Clicked");
@@ -38,10 +38,16 @@ class FPGA extends Component {
     };
 
     const switchChecked = (e, i) => {
+      const newLedArray = [...this.state.ledArray];
+
       if (e.target.checked) {
-        console.log(`Switch number ${i + 1} is checked`);
+        newLedArray[i] = true;
+        this.setState({
+          ledArray: newLedArray,
+        });
       } else if (!e.target.checked) {
-        console.log(`Switch number ${i + 1} is unchecked`);
+        newLedArray[i] = false;
+        this.setState({ ledArray: newLedArray });
       }
     };
 
@@ -51,8 +57,8 @@ class FPGA extends Component {
         <div className="fpga">
           <div className="fpga_interior">
             <div className="fpga_interior_left">
-              <div className="fpga_display">8.8.:8.8.</div>
-              <div className="fpga_buttons">
+             {this.state.FPGAdata[0].visible && <div className="fpga_display">8.8.:8.8.</div> }
+             {this.state.FPGAdata[1].visible && <div className="fpga_buttons">
                 <FPGAbuttons
                   onTopFPGAbuttonClick={onTopFPGAbuttonClick}
                   onBottomFPGAbuttonClick={onBottomFPGAbuttonClick}
@@ -60,21 +66,21 @@ class FPGA extends Component {
                   onRightFPGAbuttonClick={onRightFPGAbuttonClick}
                   onMiddleFPGAbuttonClick={onMiddleFPGAbuttonClick}
                 />
-              </div>
+              </div> }
             </div>
 
             <div className="fpga_interior_left">
-              <div className="leds rowDirection">
+            {this.state.FPGAdata[3].visible && <div className="leds rowDirection">
                 {[...Array(10)].map((object, i) => (
-                  <FPGAled id={i} ledOn={ledArray[i]} />
+                  <FPGAled id={i} ledOn={this.state.ledArray[i]} />
                 ))} 
-              </div>
+              </div>}
 
-              <div className="switch">
+              {this.state.FPGAdata[2].visible && <div className="switch">
                 {[...Array(10)].map((object, i) => (
                   <FPGAswitch switchChecked={switchChecked} id={i} />
                 ))}
-              </div>
+              </div> }
             </div>
           </div>
         </div>
