@@ -16,7 +16,7 @@ import {
 import Parallax from 'parallax-js';
 import { GSignin, GHSignin } from 'partials/SocialButtons';
 
-import Clouds from './Clouds';
+// import Clouds from './Clouds';
 
 const mapStateToProps = state => {
 	return {
@@ -87,11 +87,11 @@ class LandingPage extends Component {
 						</Row>
 					</div>
 				</div>
-				<React.Fragment>
+				{/* <React.Fragment>
 					<div data-relative-input="true" id="clouds-parllax">
 						<Clouds dataDepth="0.2" innerClassName="" />
 					</div>
-				</React.Fragment>
+				</React.Fragment> */}
 			</React.Fragment>
 		);
 	}

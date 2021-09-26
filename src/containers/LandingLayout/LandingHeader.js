@@ -46,7 +46,7 @@ class DashboardHeader extends Component {
 					<Nav navbar className="">
 						<NavItem className="px-3 ml-2 d-flex flex-row justify-content-center">
 							<NavLink className="pr-lg-5 pr-md-1" href="/blog">Blog</NavLink>
-							<NavLink className="pr-lg-5 pr-md-1 ml-4" href="/explore">Discover</NavLink>
+							{/* <NavLink className="pr-lg-5 pr-md-1 ml-4" href="/explore">Discover</NavLink> */}
 							<NavLink className="pr-lg-5 pr-md-1 ml-4" href="/login">Log in</NavLink>
 						</NavItem>
 					</Nav>

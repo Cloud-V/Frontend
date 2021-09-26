@@ -38,7 +38,7 @@ class LandingLayout extends Component {
 					<Nav className="">
 						<NavItem className="w-100">
 							<NavLink className="" href="/blog">Blog</NavLink>
-							<NavLink className="" href="/explore">Discover</NavLink>
+							{/* <NavLink className="" href="/explore">Discover</NavLink> */}
 							<NavLink className="" href="/login">Log in</NavLink>
 						</NavItem>
 					</Nav>

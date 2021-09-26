@@ -100,6 +100,11 @@ class LoginFrom extends Component {
 			captcha_token
 		});
 	}
+
+	onChange(event) {
+		console.log(event);
+	}
+
 	render() {
 		const {
 			handleSubmit,
@@ -116,6 +121,7 @@ class LoginFrom extends Component {
 					label="Username"
 					autoComplete="username"
 					tabIndex={1}
+					onChange={this.onChange}
 				/>
 				<Field
 					name="password"
