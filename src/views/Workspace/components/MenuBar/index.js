@@ -497,12 +497,12 @@ class MenuBar extends Component {
 								title="Offline"
 								className="menubar-status-indicator offline"
 							/>
-						) : (
+						) : this.props.socketStatus === "pending" ? (
 							<span
 								title="Connecting"
 								className="menubar-status-indicator pending"
 							/>
-						)}
+						) : <span />}
 						&nbsp;
 					</MenuItem>
 					<MenuItem

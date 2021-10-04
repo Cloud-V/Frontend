@@ -85,7 +85,7 @@ class Workspace extends Component {
 				},
 				{}
 			),
-			socketStatus: "pending",
+			socketStatus: "off",
 			targetNode: null,
 			newFileStep: 0,
 			clipboard: { type: "none" },
@@ -960,6 +960,14 @@ class Workspace extends Component {
 	}
 
 	async onSynthesize() {
+		let stdcells = this.props.library
+			.get("data")
+			.get("stdcells")
+			.toJS();
+
+		if (stdcells.length < 1) {
+			return this.toastError("Cloud V has not been configured with standard cell libraries.");
+		}
 		await this.saveAll();
 		this.openDialog(modalNames.synthesis);
 	}
@@ -1419,7 +1427,7 @@ class Workspace extends Component {
 		}
 		return done();
 	}
-	synthesisCallback(snythData, done) {
+	synthesisCallback(synthData, done) {
 		const { repository } = this.props;
 		const ownerName = repository.get("data").get("ownerName");
 		const repoName = repository.get("data").get("repoName");
@@ -1438,7 +1446,7 @@ class Workspace extends Component {
 			schematic,
 			synthType,
 			sizing
-		} = snythData;
+		} = synthData;
 		const isAsync = synthType === "async";
 		fileName = adjustExtension(fileName, ".v");
 		const reportName = removeExtension(fileName, ".v") + ".rpt.txt";
@@ -1668,7 +1676,11 @@ class Workspace extends Component {
 			ownerName,
 			repoName
 		});
-		this.connectSockets();
+
+		if (process.env.REACT_APP_SOCKETIO_ENABLED === "1") {
+			this.setState({ socketStatus: "pending" });
+			this.connectSockets();
+		}
 
 		const { repository } = this.props;
 
@@ -1944,7 +1956,6 @@ class Workspace extends Component {
 	}
 
 	render() {
-	console.log(this.props.files.get("isSetTopModule"))
 
 		const { repository, library } = this.props;
 		if (repository.get("statusCode") === 404) {
