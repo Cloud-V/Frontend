@@ -7,7 +7,7 @@ import {
 	reduxForm
 } from 'redux-form/immutable';
 import { Link } from 'react-router-dom';
-import HCaptcha from '@hcaptcha/react-hcaptcha';
+import Captcha from '../Captcha';
 
 
 import {
@@ -158,7 +158,7 @@ class LoginFrom extends Component {
 					label="Confirm Password"
 					autoComplete="new-password"
 				/>
-				<HCaptcha
+				<Captcha
 					sitekey={captcha_site}
 					onVerify={captcha_token => this.setState({ token: captcha_token })}
 					onExpire={e => this.setState({ token: '' })}

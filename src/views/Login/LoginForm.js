@@ -15,7 +15,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import PasswordMask from 'modules/react-password-mask';
-import HCaptcha from '@hcaptcha/react-hcaptcha';
+import Captcha from "../Captcha";
 
 
 const validate = values => {
@@ -131,7 +131,7 @@ class LoginFrom extends Component {
 					autoComplete="current-password"
 					tabIndex={2}
 				/>
-				<HCaptcha
+				<Captcha
 					sitekey={captcha_site}
 					onVerify={captcha_token => this.setState({ token: captcha_token })}
 					onExpire={e => this.setState({ token: '' })}

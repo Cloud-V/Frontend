@@ -15,7 +15,9 @@ import {
 	Input,
 	Button
 } from 'reactstrap';
-import HCaptcha from '@hcaptcha/react-hcaptcha';
+
+import Captcha from "../Captcha";
+
 
 const validate = values => {
 	const errors = {};
@@ -83,7 +85,7 @@ class ForgotPasswordForm extends Component {
 					authComplete="username"
 					label="Username or E-mail"
 				/>
-				<HCaptcha
+				<Captcha
 					sitekey={captcha_site}
 					onVerify={captcha_token => this.setState({ token: captcha_token })}
 					onExpire={e => this.setState({ token: '' })}
