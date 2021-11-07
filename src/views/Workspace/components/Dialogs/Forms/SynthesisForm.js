@@ -224,11 +224,7 @@ class SynthesisForm extends Component {
 				<div class="collapsable_tabs">
 					<div class="collapsable_tab">
 						<input type="checkbox" id="collapsable_chck1" />
-						<label class="collapsable_tab-label" for="collapsable_chck1">Advanced</label>
 						<div class="collapsable_tab-content">
-
-
-
 								<Field
 									name="constraints"
 									type="checkbox"
