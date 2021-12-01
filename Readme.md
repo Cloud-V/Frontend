@@ -28,4 +28,4 @@ Invoke `yarn watch`. Wait until compilation is done, then visit https://localhos
 # ⚖️ License
 All rights reserved, the American University in Cairo and the Cloud V Project.
 
-You may distribute the software or any of its constituent source files; in part or in whole; under the terms of the GNU Affero General Public License v3, or at your option, any later version. See 'License' for more information.
+The Cloud V frontend is available under the Apache License, v2.0. See 'License' for more information.
