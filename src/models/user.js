@@ -35,6 +35,7 @@ const User = ImmutableModel.createClass('User', {
 		confirmPassword: '',
 		generatedAvatar: '',
 		avatarURL: '',
+		gravatarEmail: '',
 		displayName: '',
 		personalURL: '',
 		about: '',

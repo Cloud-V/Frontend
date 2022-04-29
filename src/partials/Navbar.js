@@ -43,6 +43,8 @@ import {
 	URLs
 } from '../constants.js';
 
+const md5 = require('md5');
+
 const propTypes = {
 	children: PropTypes.node
 };
@@ -61,6 +63,14 @@ const mapDispatchToProps = dispatch => {
 	};
 };
 
+const getGravatarURL = email => {
+	let parsedEmail = ""
+	if (email)
+		parsedEmail = email.toLowerCase().split(' ').join('');
+	return `https://www.gravatar.com/avatar/${md5(parsedEmail)}?s=200`;
+
+}
+
 const defaultProps = {};
 
 class Navbar extends Component {
@@ -78,34 +88,36 @@ class Navbar extends Component {
 		const signupComplete = user.get('data').get('authComplete');
 		const profileData = user.get('data').toJS();
 		const displayName = !isLogged ? '' : (profileData.displayName || (profileData.username.length ? ('@' + profileData.username) : ''));
-		const avatarURL = `${URLs.Avatar}/${profileData.username}.png`;
+		// const avatarURL = `${URLs.Avatar}/${profileData.username}.png`;
+		const avatarURL = getGravatarURL(profileData.gravatarEmail ? profileData.gravatarEmail : profileData.email);
+
 		return (
 			<React.Fragment>
 				<AppHeader className="d-flex dashboard-header">
 					<div className="d-flex align-items-center justify-content-start">
-							<AppNavbarBrand
-								full={{
-									src: logo,
-									width: 200,
-									alt: 'Cloud V'
-								}}
-								minimized={{
-									src: sygnet,
-									width: 80,
-									alt: 'Cloud V'
-								}}
-								tag={Link}
-								to={'/'}
-							/>
+						<AppNavbarBrand
+							full={{
+								src: logo,
+								width: 200,
+								alt: 'Cloud V'
+							}}
+							minimized={{
+								src: sygnet,
+								width: 80,
+								alt: 'Cloud V'
+							}}
+							tag={Link}
+							to={'/'}
+						/>
 					</div>
 					<div className="d-flex d-sm-down-none justify-content-center search-and-links">
-						<SearchBox onSearch={({q}) => {
-								if (q && q.length) {
-									this.setState({q}, () => {
-										this.props.setQuery(q).then(_ => this.props.search(q));
-									})
-								}
-							}}
+						<SearchBox onSearch={({ q }) => {
+							if (q && q.length) {
+								this.setState({ q }, () => {
+									this.props.setQuery(q).then(_ => this.props.search(q));
+								})
+							}
+						}}
 							defaultValue={this.state.q}
 						/>
 						<Nav navbar>
@@ -116,14 +128,14 @@ class Navbar extends Component {
 					</div>
 					<div className="d-flex d-sm-down-none justify-content-end">
 						<Nav navbar>
-							{isLogged? <AppHeaderDropdown direction="down">
+							{isLogged ? <AppHeaderDropdown direction="down">
 								<DropdownToggle nav>
-									<img src={avatarURL} className="img-avatar" alt={displayName}/>
+									<img src={avatarURL} className="img-avatar" alt={displayName} />
 									<span className="header-greeting mr-4 d-lg-down-none">{signupComplete && <React.Fragment>{' '}Hi, {displayName}</React.Fragment>}</span>
 								</DropdownToggle>
 								<DropdownMenu right style={{
-										right: 'auto'
-									}}>
+									right: 'auto'
+								}}>
 									<DropdownItem header to={`/${profileData.username}`} className="text-center">
 										<strong>Profile</strong>
 									</DropdownItem>
@@ -137,12 +149,12 @@ class Navbar extends Component {
 									</DropdownItem>
 								</DropdownMenu>
 							</AppHeaderDropdown>
-							: <NavItem className="action-color pr-2">
-								<NavLink href="/login">
-									Log in
+								: <NavItem className="action-color pr-2">
+									<NavLink href="/login">
+										Log in
 								</NavLink>
-							</NavItem>
-						}
+								</NavItem>
+							}
 						</Nav>
 					</div>
 					<AppAsideToggler className="d-md-none" mobile />
@@ -150,13 +162,13 @@ class Navbar extends Component {
 				<AppAside className="cloudv-aside dashboard-aside d-md-none" fixed hidden>
 					<Nav className="">
 						<NavItem className="w-100">
-							<NavLink href="#"><SearchBox className="pb-1 pt-1" onSearch={({q}) => {
-									if (q && q.length) {
-										this.setState({q}, () => {
-											this.props.setQuery(q).then(_ => this.props.search(q));
-										})
-									}
-								}}
+							<NavLink href="#"><SearchBox className="pb-1 pt-1" onSearch={({ q }) => {
+								if (q && q.length) {
+									this.setState({ q }, () => {
+										this.props.setQuery(q).then(_ => this.props.search(q));
+									})
+								}
+							}}
 								defaultValue={this.state.q}
 								placeholder="Search"
 							/></NavLink>

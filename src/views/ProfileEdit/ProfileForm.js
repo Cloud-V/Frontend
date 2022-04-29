@@ -71,26 +71,26 @@ class RenderAvatarField extends Component {
 		} = input;
 		return (<FormGroup className="avatar-input">
 			<input
-					name={name}
-					type={'file'}
-					autoComplete={autoComplete || ''}
-					accept="image/*"
-					ref={input => this.inputElement = input}
-					className="form-control-file"
-					placeholder={placeholder || ''} onChange={(e) => {
-						e.preventDefault();
-						if (e.target.files.length) {
-							const file = e.target.files[0]
-							onChange(file);
-							const reader = new FileReader();
-							reader.onload = (e) => {
-								this.setState({
-									avatar: e.target.result
-								});
-							}
-							reader.readAsDataURL(file);
+				name={name}
+				type={'file'}
+				autoComplete={autoComplete || ''}
+				accept="image/*"
+				ref={input => this.inputElement = input}
+				className="form-control-file"
+				placeholder={placeholder || ''} onChange={(e) => {
+					e.preventDefault();
+					if (e.target.files.length) {
+						const file = e.target.files[0]
+						onChange(file);
+						const reader = new FileReader();
+						reader.onload = (e) => {
+							this.setState({
+								avatar: e.target.result
+							});
 						}
-					}}/>
+						reader.readAsDataURL(file);
+					}
+				}} />
 			<img onClick={(e) => this.inputElement.click()} src={this.state.avatar} alt="Change Avatar" />
 			<Button onClick={(e) => this.inputElement.click()}>Change Avatar</Button>
 			{touched && error && <div className="form-field-error">{error}</div>}
@@ -114,17 +114,17 @@ class RenderField extends Component {
 		const isCheckbox = (type === 'checkbox');
 
 		return (<FormGroup check={isCheckbox}>
-			{isCheckbox?
-			<React.Fragment>
-				<Label check>
+			{isCheckbox ?
+				<React.Fragment>
+					<Label check>
+						<Input {...input} disabled={disabled || false} type={type} autoComplete={autoComplete || ''} placeholder={placeholder || ''} />
+						{label}
+					</Label>
+				</React.Fragment>
+				: (<React.Fragment>
+					<Label>{label}</Label>
 					<Input {...input} disabled={disabled || false} type={type} autoComplete={autoComplete || ''} placeholder={placeholder || ''} />
-					{label}
-				</Label>
-			</React.Fragment>
-			: (<React.Fragment>
-				<Label>{label}</Label>
-				<Input {...input} disabled={disabled || false} type={type} autoComplete={autoComplete || ''} placeholder={placeholder || ''} />
-			</React.Fragment>)}
+				</React.Fragment>)}
 			{touched && error && <div className="form-field-error">{error}</div>}
 		</FormGroup>);
 	}
@@ -143,7 +143,8 @@ class ProfileForm extends Component {
 			email,
 			displayName,
 			personalURL,
-			about
+			about,
+			gravatarEmail
 		} = profile;
 
 		this.props.initialize({
@@ -151,7 +152,8 @@ class ProfileForm extends Component {
 			email,
 			displayName,
 			personalURL,
-			about
+			about,
+			gravatarEmail
 		});
 	}
 	render() {
@@ -165,14 +167,14 @@ class ProfileForm extends Component {
 		return (
 			<Form className="profile-form w-100 pl-4 pr-4 pt-2 pb-2" onSubmit={handleSubmit}>
 				{userUpdateFailed && <Alert color="danger">{errorMessage}</Alert>}
-				<Field
+				{/* <Field
 					name="avatar"
 					type="file"
 					component={RenderAvatarField}
 					label="Avatar:"
 					defaultAvatar={this.state.avatar}
 					autoComplete="avatar"
-				/>
+				/> */}
 				<Field
 					name="username"
 					type="text"
@@ -193,8 +195,15 @@ class ProfileForm extends Component {
 					name="displayName"
 					type="text"
 					component={RenderField}
-					label="Display name:"
+					label="Display name"
 					autoComplete="name"
+				/>
+				<Field
+					name="gravatarEmail"
+					type="text"
+					component={RenderField}
+					label="Gravatar Email"
+					autoComplete="email"
 				/>
 				<Field
 					name="personalURL"

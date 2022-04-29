@@ -75,44 +75,47 @@ class ProfileEdit extends Component {
 				<Col xl="4" lg="5" md="8" className="d-flex justify-content-center align-items-center flex-column">
 					<div className="auth-section w-100 auth-logo">
 						<Col className="d-flex mr-0 mb-4 justify-content-center align-items-center flex-column">
-								<div className="w-100 text-center mt-4">
-									<h3>Edit Profile</h3>
-								</div>
+							<div className="w-100 text-center mt-4">
+								<h3>Edit Profile</h3>
+							</div>
 						</Col>
 					</div>
 					<div className="w-100 auth-box">
 						<Card className="w-100">
 							<CardBody className="profile-card w-100 d-flex flex-column justify-content-start align-items-center">
 								<ProfileForm
-											profile={this.props.profile}
-											status={user.get('status')}
-											errorMessage={user.get('error').toString()}
-											onSubmit={e => {
-												if (e.get('resetTutorials')) {
-													e = e.remove('resetTutorials')
-														.set('dashboardTour', false)
-														.set('repositoryTour', false)
-														.set('workspaceTour', false);
-												}
-												if (!e.has('personalURL')) {
-													e = e.set('personalURL', '');
-												}
-												if (!e.has('displayName')) {
-													e = e.set('displayName', '');
-												}
-												if (!e.has('about')) {
-													e = e.set('about', '');
-												}
-												e = e.remove('username').remove('email');
-												const form = new FormData();
-												e.forEach((val, k) => form.append(k, val));
-												this.props.updateUser(form).then((action) => {
-													if (action.error && action.error.length) {
-														return;
-													}
-													this.props.getProfile({ownerName});
-												}).catch(err => {});
-											}} />
+
+									profile={this.props.profile}
+									status={user.get('status')}
+									errorMessage={user.get('error').toString()}
+									onSubmit={e => {
+										console.log("E:", e)
+										if (e.get('resetTutorials')) {
+											e = e.remove('resetTutorials')
+												.set('dashboardTour', false)
+												.set('repositoryTour', false)
+												.set('workspaceTour', false);
+										}
+										if (!e.has('personalURL')) {
+											e = e.set('personalURL', '');
+										}
+										if (!e.has('displayName')) {
+											e = e.set('displayName', '');
+										}
+										if (!e.has('about')) {
+											e = e.set('about', '');
+										}
+										e = e.remove('username').remove('email');
+										const form = new FormData();
+										e.forEach((val, k) => form.append(k, val));
+										console.log("gravatarEmail", form.get("gravatarEmail"))
+										this.props.updateUser(form).then((action) => {
+											if (action.error && action.error.length) {
+												return;
+											}
+											this.props.getProfile({ ownerName });
+										}).catch(err => { });
+									}} />
 							</CardBody>
 						</Card>
 					</div>
