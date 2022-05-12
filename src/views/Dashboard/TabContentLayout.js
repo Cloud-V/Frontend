@@ -1,38 +1,45 @@
-import React, {
-	Component
-} from 'react';
+import React, { Component } from "react";
 
-import {
-	Container
-} from 'reactstrap';
+import { Container } from "reactstrap";
+import { Link } from "react-router-dom";
 
-import TabContent from 'modules/rc-tabs/lib/TabContent';
+import TabContent from "modules/rc-tabs/lib/TabContent";
 
-import { Link } from 'react-router-dom';
+const md5 = require("md5");
 
-import {
-	URLs
-} from '../../constants.js';
+const getGravatarURL = (email) => {
+    let parsedEmail = email.toLowerCase().split(" ").join("");
+    return `https://www.gravatar.com/avatar/${md5(parsedEmail)}?s=200`;
+};
 
 export default class TabContentLayout extends Component {
-	render() {
-		const {
-			profile,
-			isMe
-		} = this.props;
+    render() {
+        const { profile, isMe } = this.props;
 
-		const displayName = profile.displayName || (profile.username.length ? ('@' + profile.username) : '');
-		const avatarURL = `${URLs.Avatar}/${profile.username}.png`;
+        const displayName =
+            profile.displayName ||
+            (profile.username.length ? "@" + profile.username : "");
+        const avatarURL = getGravatarURL(
+            profile.gravatarEmail ? profile.gravatarEmail : profile.email
+        );
 
-		return (<Container className="repositories-dashboard">
-			<div className="repositories-dashboard-header">
-				<span className="repositories-dashboard-header-text">
-					<Link to={`/${profile.username}`}><img src={avatarURL} className="img-avatar mr-3" alt={displayName}/> {displayName}'s </Link> {isMe? ` Dashboard`: ` Repositories`}
-				</span>
-			</div>
-			<TabContent {...this.props}>
-				{this.props.children}
-			</TabContent>
-		</Container>)
-	}
-};
+        return (
+            <Container className="repositories-dashboard">
+                <div className="repositories-dashboard-header">
+                    <span className="repositories-dashboard-header-text">
+                        <Link to={`/${profile.username}`}>
+                            <img
+                                src={avatarURL}
+                                className="img-avatar mr-3"
+                                alt={displayName}
+                            />{" "}
+                            {displayName}'s{" "}
+                        </Link>{" "}
+                        {isMe ? ` Dashboard` : ` Repositories`}
+                    </span>
+                </div>
+                <TabContent {...this.props}>{this.props.children}</TabContent>
+            </Container>
+        );
+    }
+}

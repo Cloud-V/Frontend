@@ -26,28 +26,39 @@
     font-family: "MontserratFallback";
     font-weight: normal;
     font-style: normal;
-    src: local("Montserrat"), url("/assets/fonts/Montserrat/Montserrat-Regular.ttf");
+    src: local("Montserrat"),
+        url("/assets/fonts/Montserrat/Montserrat-Regular.ttf");
 }
 
 @font-face {
     font-family: "MontserratFallback";
     font-weight: normal;
     font-style: italic;
-    src: local("Montserrat Italic"), url("/assets/fonts/Montserrat/Montserrat-Italic.ttf");
+    src: local("Montserrat Italic"),
+        url("/assets/fonts/Montserrat/Montserrat-Italic.ttf");
 }
 
 @font-face {
     font-family: "MontserratFallback";
     font-weight: bold;
     font-style: normal;
-    src: local("Montserrat Bold"), url("/assets/fonts/Montserrat/Montserrat-Bold.ttf");
+    src: local("Montserrat Bold"),
+        url("/assets/fonts/Montserrat/Montserrat-Bold.ttf");
 }
 
 @font-face {
     font-family: "VeraMono";
-    src: local("VeraMono"), url("/assets/fonts/VeraMono/roman/VeraMono-webfont.eot");
-    src: local("VeraMono"), url("/assets/fonts/VeraMono/roman/VeraMono-webfont.eot?#iefix") format("embedded-opentype"), // url('/assets/fonts/VeraMono/roman/VeraMono-webfont.woff2') format('woff2'),
-    url("/assets/fonts/VeraMono/roman/VeraMono-webfont.woff")format("woff"), url("/assets/fonts/VeraMono/roman/VeraMono-webfont.ttf") format("truetype"), url("/assets/fonts/VeraMono/roman/VeraMono-webfont.svg#bitstream_vera_sans_monoroman") format("svg");
+    src: local("VeraMono"),
+        url("/assets/fonts/VeraMono/roman/VeraMono-webfont.eot");
+    src: local("VeraMono"),
+        url("/assets/fonts/VeraMono/roman/VeraMono-webfont.eot?#iefix")
+            format("embedded-opentype"),
+        // url('/assets/fonts/VeraMono/roman/VeraMono-webfont.woff2') format('woff2'),
+        url("/assets/fonts/VeraMono/roman/VeraMono-webfont.woff") format("woff"),
+        url("/assets/fonts/VeraMono/roman/VeraMono-webfont.ttf")
+            format("truetype"),
+        url("/assets/fonts/VeraMono/roman/VeraMono-webfont.svg#bitstream_vera_sans_monoroman")
+            format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -63,8 +74,7 @@ html {
     @media screen and (max-width: 480px) {
         font-size: 12px;
     }
-    @media (-webkit-min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi) {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
         font-size: 12px;
     }
 }
@@ -73,12 +83,17 @@ a {
     color: $linksColor;
 }
 
-#root {}
+#root {
+}
 
 @font-face {
     font-family: "icomoon";
     src: url("./iconfonts/fonts/icomoon.eot?7hcy27");
-    src: url("./iconfonts/fonts/icomoon.eot?7hcy27#iefix") format("embedded-opentype"), url("./iconfonts/fonts/icomoon.ttf?7hcy27") format("truetype"), url("./iconfonts/fonts/icomoon.woff?7hcy27") format("woff"), url("./iconfonts/fonts/icomoon.svg?7hcy27#icomoon") format("svg");
+    src: url("./iconfonts/fonts/icomoon.eot?7hcy27#iefix")
+            format("embedded-opentype"),
+        url("./iconfonts/fonts/icomoon.ttf?7hcy27") format("truetype"),
+        url("./iconfonts/fonts/icomoon.woff?7hcy27") format("woff"),
+        url("./iconfonts/fonts/icomoon.svg?7hcy27#icomoon") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -250,7 +265,7 @@ a {
     }
     .dashboard-tabs-nav {
         height: 100%;
-        >div {
+        > div {
             height: 100%;
         }
     }
@@ -294,7 +309,7 @@ body {
 }
 
 .repositories-dashboard,
-.repositories-dashboard+.dashboard-tabs-content {
+.repositories-dashboard + .dashboard-tabs-content {
     width: 100%;
     background-color: white;
     border: 1px solid $boxBorder;
@@ -325,7 +340,7 @@ body {
     .dashboard-tabs-tabpane {
         &.dashboard-tabs-tabpane-inactive {
             opacity: 0;
-            >div {
+            > div {
                 display: none;
             }
             .repositories {
@@ -336,7 +351,7 @@ body {
 }
 
 .repository-details,
-.repository-details+.dashboard-tabs-content {
+.repository-details + .dashboard-tabs-content {
     width: 100%;
     background-color: white;
     border: 1px solid $boxBorder;
@@ -346,7 +361,7 @@ body {
     .dashboard-tabs-tabpane {
         &.dashboard-tabs-tabpane-inactive {
             opacity: 0;
-            >div {
+            > div {
                 display: none;
             }
             .files-tree {
@@ -366,7 +381,7 @@ body {
             width: calc(100% + 2px) !important;
         }
         .rst__tree {
-            &>div:first-child {
+            & > div:first-child {
                 background-color: white;
                 overflow: initial !important;
                 width: initial !important;
@@ -447,7 +462,7 @@ body {
                     }
                     &:hover:not([disabled]) {
                         color: $activeActionColor;
-                        opacity: 1.0;
+                        opacity: 1;
                         i {
                             &::before {
                                 color: $activeActionColor;
@@ -610,7 +625,7 @@ body {
                 @media screen and (max-width: 767px) {
                     margin-bottom: 1.2rem;
                 }
-                >div {
+                > div {
                     &:first-child {
                         button {
                             border-top-left-radius: 0.25rem;
@@ -1134,7 +1149,8 @@ body {
     }
 }
 
-.forgot-password {}
+.forgot-password {
+}
 
 .form-field-error {
     color: red;
@@ -1255,7 +1271,7 @@ body {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
     position: relative;
-    >div {
+    > div {
         flex-grow: 1;
     }
     .search-and-links {
@@ -1362,7 +1378,7 @@ body {
     &.cloudv-create-try {
         @media screen and (max-width: 767px) {
             flex-direction: column;
-            >div {
+            > div {
                 margin-bottom: 1rem;
             }
         }
@@ -1371,7 +1387,7 @@ body {
         .landing-section-auth-buttons {
             @media screen and (max-width: 767px) {
                 flex-direction: column;
-                >div {
+                > div {
                     margin-bottom: 1rem;
                 }
             }
@@ -1382,7 +1398,8 @@ body {
         width: 50%; // padding-top: 2rem !important;
         margin-bottom: 0.1rem; // position: absolute;
         // bottom: 15%;
-        @media screen and (min-width: 1441px) {}
+        @media screen and (min-width: 1441px) {
+        }
         .landing-footer-text-wrap {
             @media screen and (min-width: 1441px) {
                 width: 60% !important;
@@ -1504,7 +1521,8 @@ body {
 
 .coming-soon {
     color: $themeDark;
-    a {}
+    a {
+    }
 }
 
 .avatar-input {
@@ -1654,16 +1672,16 @@ body {
     border: 1px solid $boxBorder;
     width: 70%;
     .switch-radio {
-        &:checked+label {
+        &:checked + label {
             color: white !important;
             &:first-of-type {
-                ~a[role="button"] {
+                ~ a[role="button"] {
                     border-top-left-radius: 0.25rem;
                     border-bottom-left-radius: 0.25rem;
                 }
             }
             &:last-of-type {
-                ~a[role="button"] {
+                ~ a[role="button"] {
                     border-top-right-radius: 0.25rem;
                     border-bottom-right-radius: 0.25rem;
                 }
@@ -1672,7 +1690,7 @@ body {
         border: none !important;
         outline: none !important;
         box-shadow: none !important;
-        +label {
+        + label {
             outline: none !important;
             box-shadow: none !important;
             cursor: pointer;
@@ -1827,7 +1845,8 @@ body {
     background-color: $dashboardBackground;
 }
 
-@include themify($themes) {}
+@include themify($themes) {
+}
 
 .modal-dialog.center-dialog {
     // position: absolute;
@@ -1883,13 +1902,17 @@ body {
                             background-color: themed("barActiveBackground");
                         }
                         &:last-child {
-                            background-color: darken( themed("barActiveBackground"), 10%);
+                            background-color: darken(
+                                themed("barActiveBackground"),
+                                10%
+                            );
                             background-color: #15404b; // box-shadow: 1px 1px 1px 0px themed('tabShadow');
                             min-width: inherit; // min-height: inherit;
                             width: pxToRem(30); // height: 50%;
                             // height: pxToRem(40);
                             padding: 0;
-                            border-bottom: 2px solid themed("paneLighterBackground"); // border-bottom: none;
+                            border-bottom: 2px solid
+                                themed("paneLighterBackground"); // border-bottom: none;
                             display: flex;
                             justify-content: center;
                             align-items: center;
@@ -1907,7 +1930,7 @@ body {
                     }
                 }
                 .workspace-tabs-nav {
-                    >div {
+                    > div {
                         display: flex;
                         align-items: flex-end;
                     }
@@ -1946,7 +1969,8 @@ body {
                         background-color: themed("action");
                     }
                 }
-                .workspace-tabs-bar {}
+                .workspace-tabs-bar {
+                }
             }
             user-select: none;
             height: 100%;
@@ -2014,17 +2038,17 @@ body {
             .workspace-tabs-tabpane {
                 &.workspace-tabs-tabpane-inactive {
                     opacity: 0;
-                    >div {
+                    > div {
                         display: none;
                     }
                 }
             }
         }
-        div>div.rc-menu-submenu {
+        div > div.rc-menu-submenu {
             z-index: 4 !important;
         }
         .rc-menu-submenu-active {
-            >.rc-menu-submenu-title {
+            > .rc-menu-submenu-title {
                 color: themed("darkTextColor");
                 background-color: themed("menuItemActiveBackgroundColor");
             }
@@ -2105,7 +2129,7 @@ body {
             display: flex;
             flex-direction: column;
         }
-       
+
         .menubar {
             // min-height: 3.75rem;
             // display: flex;
@@ -2122,9 +2146,9 @@ body {
                 color: themed("lightTextColor");
                 border-bottom: none;
                 background-color: themed("barActiveBackground");
-                >.rc-menu-submenu {
+                > .rc-menu-submenu {
                     &.rc-menu-submenu-active {
-                        >div {
+                        > div {
                             background-color: themed("darkBarActiveBackground");
                             color: themed("lightTextColor");
                         }
@@ -2137,7 +2161,7 @@ body {
             display: flex;
             justify-content: center; // align-items: center;
             padding-top: 2rem;
-            background-color: themed('barActiveBackground');
+            background-color: themed("barActiveBackground");
             color: themed("lightTextColor");
             height: 100%;
         }
@@ -2166,9 +2190,13 @@ body {
                                 height: 100%;
                                 margin-top: 0;
                                 margin-bottom: 0;
-                                background-color: themed("lightBarActiveBackground");
+                                background-color: themed(
+                                    "lightBarActiveBackground"
+                                );
                                 &:hover {
-                                    background-color: themed("darkBarActiveBackground");
+                                    background-color: themed(
+                                        "darkBarActiveBackground"
+                                    );
                                 }
                                 &.menubar-cursor-value {
                                     margin-left: auto;
@@ -2177,21 +2205,27 @@ body {
                                         color: unset !important;
                                         cursor: unset;
                                     }
-                                    background-color: themed("lightBarActiveBackground");
+                                    background-color: themed(
+                                        "lightBarActiveBackground"
+                                    );
                                 }
                                 &.menubar-select {
                                     &.rc-menu-item-disabled {
                                         color: unset !important;
                                         cursor: unset;
                                     }
-                                    background-color: themed("lightBarActiveBackground");
+                                    background-color: themed(
+                                        "lightBarActiveBackground"
+                                    );
                                     font-size: 0.9rem;
                                     .form-control {
                                         font-size: 0.9rem;
                                         height: 2rem;
                                         color: white;
                                         background-color: transparent;
-                                        background-color: themed("lightBarActiveBackground");
+                                        background-color: themed(
+                                            "lightBarActiveBackground"
+                                        );
                                         border: none;
                                     }
                                 }
@@ -2202,10 +2236,12 @@ body {
                     color: themed("lightTextColor");
                     border-bottom: none;
                     background-color: themed("lightBarActiveBackground");
-                    >.rc-menu-submenu {
+                    > .rc-menu-submenu {
                         &.rc-menu-submenu-active {
-                            >div {
-                                background-color: themed("darkBarActiveBackground");
+                            > div {
+                                background-color: themed(
+                                    "darkBarActiveBackground"
+                                );
                                 color: themed("lightTextColor");
                             }
                         }
@@ -2258,7 +2294,6 @@ body {
                 height: 40px;
                 display: flex;
                 align-items: center;
-
             }
             .rc-tree-select-selection__rendered {
                 overflow: unset;
@@ -2330,7 +2365,10 @@ body {
                 }
             }
             .rc-tree-node-selected {
-                background-color: darken( themed("paneLighterBackground"), 5%); // border: 1px #ffb951 solid;
+                background-color: darken(
+                    themed("paneLighterBackground"),
+                    5%
+                ); // border: 1px #ffb951 solid;
                 border: none;
                 opacity: 0.97;
             }
@@ -2477,13 +2515,18 @@ body {
                 height: unset;
                 &:hover,
                 &:active {
-                    background-color: themed( "darkBarActiveBackground") !important;
+                    background-color: themed(
+                        "darkBarActiveBackground"
+                    ) !important;
                 }
                 &.cancel-button {
                     background-color: themed("toastError");
                     &:hover,
                     &:active {
-                        background-color: darken( themed("toastError"), 5%) !important;
+                        background-color: darken(
+                            themed("toastError"),
+                            5%
+                        ) !important;
                     }
                 }
             }
@@ -2571,19 +2614,23 @@ body {
             }
             &.c-excluded {
                 background-image: url("/assets/img/icons/exclude.svg");
-                filter: invert(41%) sepia(31%) saturate(6377%) hue-rotate(341deg) brightness(97%) contrast(87%);
+                filter: invert(41%) sepia(31%) saturate(6377%)
+                    hue-rotate(341deg) brightness(97%) contrast(87%);
             }
             &.verilog-excluded {
                 background-image: url("/assets/img/icons/exclude.svg");
-                filter: invert(41%) sepia(31%) saturate(6377%) hue-rotate(341deg) brightness(97%) contrast(87%);
+                filter: invert(41%) sepia(31%) saturate(6377%)
+                    hue-rotate(341deg) brightness(97%) contrast(87%);
             }
             &.h-excluded {
                 background-image: url("/assets/img/icons/exclude.svg");
-                filter: invert(41%) sepia(31%) saturate(6377%) hue-rotate(341deg) brightness(97%) contrast(87%);
+                filter: invert(41%) sepia(31%) saturate(6377%)
+                    hue-rotate(341deg) brightness(97%) contrast(87%);
             }
             &.ip-excluded {
                 background-image: url("/assets/img/icons/exclude.svg");
-                filter: invert(41%) sepia(31%) saturate(6377%) hue-rotate(341deg) brightness(97%) contrast(87%);
+                filter: invert(41%) sepia(31%) saturate(6377%)
+                    hue-rotate(341deg) brightness(97%) contrast(87%);
             }
             &.folder {
                 background-image: url("/assets/img/icons/folder.svg");
@@ -2614,14 +2661,14 @@ body {
                 animation-name: spin;
                 animation-duration: 3000ms;
                 animation-iteration-count: infinite;
-                animation-timing-function: linear; 
+                animation-timing-function: linear;
             }
             &.loading {
                 background-image: url("/assets/img/icons/spinner.svg");
                 animation-name: spin;
                 animation-duration: 3000ms;
                 animation-iteration-count: infinite;
-                animation-timing-function: linear; 
+                animation-timing-function: linear;
             }
             &.preparing-static {
                 background-image: url("/assets/img/icons/spinner.svg");
@@ -2640,7 +2687,8 @@ body {
             }
             &.signal-node {
                 background-image: url("/assets/img/icons/module.svg");
-                filter: invert(72%) sepia(5%) saturate(5900%) hue-rotate(43deg) brightness(90%) contrast(91%);
+                filter: invert(72%) sepia(5%) saturate(5900%) hue-rotate(43deg)
+                    brightness(90%) contrast(91%);
             }
             &.soc {
                 background-image: url("/assets/img/icons/soc.svg");
@@ -2650,7 +2698,8 @@ body {
             }
             &.topmodule {
                 background-image: url("/assets/img/icons/top_module.svg");
-                filter: invert(72%) sepia(5%) saturate(5900%) hue-rotate(43deg) brightness(90%) contrast(91%);
+                filter: invert(72%) sepia(5%) saturate(5900%) hue-rotate(43deg)
+                    brightness(90%) contrast(91%);
             }
             &.text {
                 background-image: url("/assets/img/icons/file.svg");
@@ -2663,7 +2712,8 @@ body {
             }
             &.verilog-validated {
                 background-image: url("/assets/img/icons/verilog.svg");
-                filter: invert(72%) sepia(5%) saturate(5900%) hue-rotate(43deg) brightness(90%) contrast(91%);
+                filter: invert(72%) sepia(5%) saturate(5900%) hue-rotate(43deg)
+                    brightness(90%) contrast(91%);
             }
             &.viz {
                 background-image: url("/assets/img/icons/file.svg");

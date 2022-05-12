@@ -1,5 +1,5 @@
-export default state => {
-	return {
-		library: state.get("library")
-	};
+export default (state) => {
+    return {
+        library: state.get("library"),
+    };
 };

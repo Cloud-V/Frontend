@@ -1,22 +1,21 @@
-
 @font-face {
-	font-family: 'Montserrat';
-	font-weight: normal;
-	font-style: normal;
-	src: local('Montserrat'),
-	url("/assets/fonts/Montserrat/Montserrat-Regular.ttf")
+    font-family: "Montserrat";
+    font-weight: normal;
+    font-style: normal;
+    src: local("Montserrat"),
+        url("/assets/fonts/Montserrat/Montserrat-Regular.ttf");
 }
 @font-face {
-	font-family: 'Montserrat';
-	font-weight: normal;
-	font-style: italic;
-	src: local('Montserrat'),
-	url("/assets/fonts/Montserrat/Montserrat-Italic.ttf")
+    font-family: "Montserrat";
+    font-weight: normal;
+    font-style: italic;
+    src: local("Montserrat"),
+        url("/assets/fonts/Montserrat/Montserrat-Italic.ttf");
 }
 @font-face {
-	font-family: 'Montserrat';
-	font-weight: bold;
-	font-style: normal;
-	src: local('Montserrat'),
-	url("/assets/fonts/Montserrat/Montserrat-Bold.ttf")
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-style: normal;
+    src: local("Montserrat"),
+        url("/assets/fonts/Montserrat/Montserrat-Bold.ttf");
 }

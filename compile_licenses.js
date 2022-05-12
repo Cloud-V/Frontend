@@ -9,13 +9,13 @@ Checker.initp = promisify(Checker.init);
 async function main() {
     let prod = await Checker.initp({ start: ".", production: true });
     let dev = await Checker.initp({ start: ".", development: true });
-    
+
     let compile = (packages) => {
         let final = ``;
         for (let name in packages) {
             let info = packages[name];
-            let {licenseFile, publisher, licenses} = info;
-            let licenseInfo = `© ${publisher} - ${licenses}`
+            let { licenseFile, publisher, licenses } = info;
+            let licenseInfo = `© ${publisher} - ${licenses}`;
             if (licenseFile) {
                 licenseInfo = fs.readFileSync(licenseFile, "utf8");
             }
@@ -35,7 +35,9 @@ async function main() {
     let customizedModules = fs.readdirSync(CUSTOM_MODULE_DIR);
     for (let name of customizedModules) {
         let modulePath = path.join(CUSTOM_MODULE_DIR, name);
-        let licenseFile = fs.readdirSync(modulePath).filter(f=> f.toLowerCase().includes("license"))[0];
+        let licenseFile = fs
+            .readdirSync(modulePath)
+            .filter((f) => f.toLowerCase().includes("license"))[0];
         let licensePath = path.join(modulePath, licenseFile);
 
         customText += `
@@ -53,7 +55,7 @@ async function main() {
     fs.writeFileSync("./public/OSAcknowledgement.txt", custom.join("\n"));
 }
 
-main().catch(err=> {
+main().catch((err) => {
     console.error(err);
     process.exit(-1);
-})
+});

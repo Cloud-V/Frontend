@@ -1,169 +1,170 @@
 .no-flow {
-	overflow-x: hidden !important;
-	overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
 }
 
 .w-70 {
-	width: 70% !important;
+    width: 70% !important;
 }
 
 .mr-6 {
-	margin-right: 6.0rem !important;
+    margin-right: 6rem !important;
 }
 
 .fixed-button {
-	background-color: $actionColor;
-	color: #FFFFFF;
-	border: none;
-	outline: none;
-	// right: 15%;
-	// bottom: 21%;
-	/* margin-bottom: 20px; */
-	border-radius: 3rem;
-	-webkit-box-shadow: 1px 3px 5px #888888;
-	box-shadow: 1px 3px 5px #888888;
-	width: 5.8rem;
-	height: 5.8rem;
+    background-color: $actionColor;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    // right: 15%;
+    // bottom: 21%;
+    /* margin-bottom: 20px; */
+    border-radius: 3rem;
+    -webkit-box-shadow: 1px 3px 5px #888888;
+    box-shadow: 1px 3px 5px #888888;
+    width: 5.8rem;
+    height: 5.8rem;
 
-	&:hover {
-		background-color: $activeActionColor;
-		color: white;
-	}
+    &:hover {
+        background-color: $activeActionColor;
+        color: white;
+    }
 }
 
 .top-right {
-	position: fixed;
-	right: 3%;
-	top: -1%;
-	@media(min-width: 577px) and (max-width: 768px) {
-		position: fixed;
-		right: 5%;
-		top: -1%;
-	}
-	@media(max-width: 576px) {
-		position: fixed;
-		right: 15%;
-		top: 1%;
-		max-width: 4.0rem;
-		max-height: 4.0rem;
-	}
+    position: fixed;
+    right: 3%;
+    top: -1%;
+    @media (min-width: 577px) and (max-width: 768px) {
+        position: fixed;
+        right: 5%;
+        top: -1%;
+    }
+    @media (max-width: 576px) {
+        position: fixed;
+        right: 15%;
+        top: 1%;
+        max-width: 4rem;
+        max-height: 4rem;
+    }
 }
 
 *:focus {
-	outline: none;
+    outline: none;
 }
 
 .fa-1-7 {
-	font-size: 1.7em;
+    font-size: 1.7em;
 }
 
 .plain-link {
-	color: white;
-	text-decoration: underline;
+    color: white;
+    text-decoration: underline;
 
-	&.black {
-		color: $darkLink;
+    &.black {
+        color: $darkLink;
 
-		&:hover {
-			color: $darkenLinkActive;
-		}
-	}
+        &:hover {
+            color: $darkenLinkActive;
+        }
+    }
 
-	&.primary {
-		color: $textPrimaryColor;
+    &.primary {
+        color: $textPrimaryColor;
 
-		&:hover {
-			color: $textPrimaryColor;
-		}
-	}
+        &:hover {
+            color: $textPrimaryColor;
+        }
+    }
 
-	&:hover {
-		color: $landingHeaderLinkActive;
-	}
+    &:hover {
+        color: $landingHeaderLinkActive;
+    }
 
-	&.no-decoration {
-		text-decoration: none;
-	}
+    &.no-decoration {
+        text-decoration: none;
+    }
 }
 
 .pb-6 {
-	padding-bottom: 5rem !important;
+    padding-bottom: 5rem !important;
 }
 
 .form-group,
 .input-group {
-	& > .pwd-mask {
-		position: relative;
+    & > .pwd-mask {
+        position: relative;
 
-		& > .form-control {}
-	}
+        & > .form-control {
+        }
+    }
 }
 
 .mt-15 {
-	margin-top: 15% !important;
+    margin-top: 15% !important;
 }
 
 .mt-20 {
-	margin-top: 20% !important;
+    margin-top: 20% !important;
 }
 
 .flex-1 {
-	flex: 1;
+    flex: 1;
 }
 
 .h-10 {
-	height: 10% !important;
+    height: 10% !important;
 }
 
 .overflow-none {
-	overflow: hidden !important;
+    overflow: hidden !important;
 }
 
 .overflow-y-none {
-	overflow-y: hidden !important;
+    overflow-y: hidden !important;
 }
 
 .overflow-x-none {
-	overflow-x: hidden !important;
+    overflow-x: hidden !important;
 }
 
 .center-all {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .center-all-text {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 @media screen and (min-width: 1921px) {
-	.col-xxl-2 {
-		flex: 0 0 16.66667%;
-		max-width: 16.66667%;
-	}
+    .col-xxl-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
 
-	.col-xxl-1-5 {
-		flex: 0 0 12.5%;
-		max-width: 12.5%;
-	}
+    .col-xxl-1-5 {
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
 
-	.col-xxl-1 {
-		flex: 0 0 8.33333%;
-		max-width: 8.33333%;
-	}
+    .col-xxl-1 {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
 }
 
 .form-control {
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 
-	&[type="password"] {
-		font-size: 2.0rem;
-	}
+    &[type="password"] {
+        font-size: 2rem;
+    }
 }
 
 .__floater.__floater__open {
-	z-index: 2000 !important;
+    z-index: 2000 !important;
 }
