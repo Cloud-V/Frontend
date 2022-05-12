@@ -4,9 +4,6 @@ import { Container } from "reactstrap";
 
 import TabContent from "modules/rc-tabs/lib/TabContent";
 
-import { Link } from "react-router-dom";
-
-import { URLs } from "../../constants.js";
 const md5 = require("md5");
 
 const getGravatarURL = (email) => {
@@ -21,7 +18,6 @@ export default class TabContentLayout extends Component {
         const displayName =
             profile.displayName ||
             (profile.username.length ? "@" + profile.username : "");
-        // const avatarURL = `${URLs.Avatar}/${profile.username}.png`;
         const avatarURL = getGravatarURL(
             profile.gravatarEmail ? profile.gravatarEmail : profile.email
         );

@@ -39,61 +39,6 @@ const validate = (values) => {
     return errors;
 };
 
-class RenderAvatarField extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            avatar: this.props.defaultAvatar,
-        };
-    }
-    render() {
-        const {
-            input,
-            meta: { touched, error },
-            placeholder,
-            autoComplete,
-        } = this.props;
-        const { name, onChange } = input;
-        return (
-            <FormGroup className="avatar-input">
-                <input
-                    name={name}
-                    type={"file"}
-                    autoComplete={autoComplete || ""}
-                    accept="image/*"
-                    ref={(input) => (this.inputElement = input)}
-                    className="form-control-file"
-                    placeholder={placeholder || ""}
-                    onChange={(e) => {
-                        e.preventDefault();
-                        if (e.target.files.length) {
-                            const file = e.target.files[0];
-                            onChange(file);
-                            const reader = new FileReader();
-                            reader.onload = (e) => {
-                                this.setState({
-                                    avatar: e.target.result,
-                                });
-                            };
-                            reader.readAsDataURL(file);
-                        }
-                    }}
-                />
-                <img
-                    onClick={(e) => this.inputElement.click()}
-                    src={this.state.avatar}
-                    alt="Change Avatar"
-                />
-                <Button onClick={(e) => this.inputElement.click()}>
-                    Change Avatar
-                </Button>
-                {touched && error && (
-                    <div className="form-field-error">{error}</div>
-                )}
-            </FormGroup>
-        );
-    }
-}
 class RenderField extends Component {
     render() {
         const {
@@ -146,9 +91,8 @@ class ProfileForm extends Component {
     constructor(props) {
         super(props);
         const profile = this.props.profile.get("data").toJS();
-        const avatarURL = `${URLs.Avatar}/${profile.username}.png?refresh=${
-            Math.random().toString().split(".")[1]
-        }`;
+        const avatarURL = `${URLs.Avatar}/${profile.username}.png?refresh=${Math.random().toString().split(".")[1]
+            }`;
         this.state = {
             avatar: avatarURL,
         };
@@ -181,14 +125,6 @@ class ProfileForm extends Component {
                 {userUpdateFailed && (
                     <Alert color="danger">{errorMessage}</Alert>
                 )}
-                {/* <Field
-					name="avatar"
-					type="file"
-					component={RenderAvatarField}
-					label="Avatar:"
-					defaultAvatar={this.state.avatar}
-					autoComplete="avatar"
-				/> */}
                 <Field
                     name="username"
                     type="text"
