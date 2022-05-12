@@ -91,8 +91,9 @@ class ProfileForm extends Component {
     constructor(props) {
         super(props);
         const profile = this.props.profile.get("data").toJS();
-        const avatarURL = `${URLs.Avatar}/${profile.username}.png?refresh=${Math.random().toString().split(".")[1]
-            }`;
+        const avatarURL = `${URLs.Avatar}/${profile.username}.png?refresh=${
+            Math.random().toString().split(".")[1]
+        }`;
         this.state = {
             avatar: avatarURL,
         };
