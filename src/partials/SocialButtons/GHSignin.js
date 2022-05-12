@@ -1,9 +1,7 @@
-import React, {
-	Component
-} from 'react';
+import React, { Component } from "react";
 import { URLs } from "../../constants.js";
 
-import ghlogo from 'assets/gh-logo.png';
+import ghlogo from "assets/gh-logo.png";
 
 export default class GHSignin extends Component {
     render() {
@@ -17,6 +15,6 @@ export default class GHSignin extends Component {
                     <span className="name">GitHub</span>
                 </div>
             </a>
-		);
+        );
     }
 }

@@ -118,7 +118,8 @@
     overflow: auto;
 }
 .workspace-tabs-content-animated {
-    transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1), margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1),
+    transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1),
+        margin-left 0.3s cubic-bezier(0.35, 0, 0.25, 1),
         margin-top 0.3s cubic-bezier(0.35, 0, 0.25, 1);
     display: -ms-flexbox;
     display: flex;
@@ -179,7 +180,10 @@
     flex-direction: column;
     height: 100%;
 }
-.workspace-tabs-left .workspace-tabs-nav-swipe .workspace-tabs-nav .workspace-tabs-tab {
+.workspace-tabs-left
+    .workspace-tabs-nav-swipe
+    .workspace-tabs-nav
+    .workspace-tabs-tab {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-negative: 0;
@@ -267,7 +271,10 @@
     flex-direction: column;
     height: 100%;
 }
-.workspace-tabs-right .workspace-tabs-nav-swipe .workspace-tabs-nav .workspace-tabs-tab {
+.workspace-tabs-right
+    .workspace-tabs-nav-swipe
+    .workspace-tabs-nav
+    .workspace-tabs-tab {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-negative: 0;
@@ -352,7 +359,10 @@
     flex: 1;
     width: 100%;
 }
-.workspace-tabs-bottom .workspace-tabs-nav-swipe .workspace-tabs-nav .workspace-tabs-tab {
+.workspace-tabs-bottom
+    .workspace-tabs-nav-swipe
+    .workspace-tabs-nav
+    .workspace-tabs-tab {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-negative: 0;
@@ -369,7 +379,9 @@
     -ms-flex-direction: row;
     flex-direction: row;
 }
-.workspace-tabs-bottom .workspace-tabs-content-animated .workspace-tabs-tabpane {
+.workspace-tabs-bottom
+    .workspace-tabs-content-animated
+    .workspace-tabs-tabpane {
     width: 100%;
 }
 .workspace-tabs-bottom .workspace-tabs-tab-next {
@@ -433,7 +445,10 @@
     flex: 1;
     width: 100%;
 }
-.workspace-tabs-top .workspace-tabs-nav-swipe .workspace-tabs-nav .workspace-tabs-tab {
+.workspace-tabs-top
+    .workspace-tabs-nav-swipe
+    .workspace-tabs-nav
+    .workspace-tabs-tab {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-negative: 0;

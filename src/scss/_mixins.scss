@@ -1,27 +1,27 @@
 @mixin circle($color, $radius: 25px) {
-	height: $radius;
-	width: $radius;
-	background-color: $color;
-	border-radius: 50%;
-	display: inline-block;
+    height: $radius;
+    width: $radius;
+    background-color: $color;
+    border-radius: 50%;
+    display: inline-block;
 }
 @mixin cloudCircle($color: $cloudBase, $radius: pxToRem(280)) {
-	@include circle($color, $radius);
-	position: absolute;
-	z-index: 0;
-	@media screen and (min-width: 1921px) {
-		height: pxToRem(350);
-		width: pxToRem(350);
-	}
-	@media screen and (max-width: 1440px) {
-		height: pxToRem(225);
-		width: pxToRem(225);
-	}
-	@media screen and (max-width: 1024px) {
-		height: pxToRem(210);
-		width: pxToRem(210);
-		// @include circle($color, $height, $width);
-	}
-	// opacity: 0.8;
-	// box-shadow: 1px 1px 1px 1px darken($color, 10%);
+    @include circle($color, $radius);
+    position: absolute;
+    z-index: 0;
+    @media screen and (min-width: 1921px) {
+        height: pxToRem(350);
+        width: pxToRem(350);
+    }
+    @media screen and (max-width: 1440px) {
+        height: pxToRem(225);
+        width: pxToRem(225);
+    }
+    @media screen and (max-width: 1024px) {
+        height: pxToRem(210);
+        width: pxToRem(210);
+        // @include circle($color, $height, $width);
+    }
+    // opacity: 0.8;
+    // box-shadow: 1px 1px 1px 1px darken($color, 10%);
 }

@@ -1,7 +1,4 @@
-import DashboardLayout from './DashboardLayout';
-import LandingLayout from './LandingLayout';
+import DashboardLayout from "./DashboardLayout";
+import LandingLayout from "./LandingLayout";
 
-export {
-	DashboardLayout,
-	LandingLayout
-};
+export { DashboardLayout, LandingLayout };

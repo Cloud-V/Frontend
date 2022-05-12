@@ -1,6 +1,6 @@
-import short from 'short-uuid';
+import short from "short-uuid";
 const generatId = () => {
-	return short.uuid();
-}
+    return short.uuid();
+};
 
 export default generatId;

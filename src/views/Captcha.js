@@ -1,10 +1,6 @@
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
-import HCaptcha from '@hcaptcha/react-hcaptcha';
-
-import React, {
-	Component
-} from 'react';
-
+import React, { Component } from "react";
 
 class MockCaptcha extends Component {
     render() {
@@ -12,6 +8,7 @@ class MockCaptcha extends Component {
     }
 }
 
-const Captcha = process.env.REACT_APP_NOCAPTCHA === "1" ? MockCaptcha : HCaptcha;
+const Captcha =
+    process.env.REACT_APP_NOCAPTCHA === "1" ? MockCaptcha : HCaptcha;
 
 export default Captcha;
