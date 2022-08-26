@@ -6,6 +6,16 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build:
     name: "Build"
@@ -40,18 +50,26 @@ jobs:
         run: yarn run build
       - name: Export Branch Name
         run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
-      - name: Configure AWS Credentials
+      - name: Upload artifact
         if: ${{ github.event_name == 'push' && env.BRANCH_NAME == 'main' }}
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: actions/upload-pages-artifact@v1
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-      - name: Deploy to S3
-        if: ${{ github.event_name == 'push' && env.BRANCH_NAME == 'main' }}
-        env:
-          AWS_PAGER: ""
-        run: |
-          cd build;
-          aws s3 sync --delete . s3://${{ secrets.FRONTEND_S3_BUCKET }}
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.FRONTEND_DISTRIBUTION_ID }} --paths /index.html /manifest.json
+          path: "build"
+  deploy:
+    name: "Deploy"
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-20.04
+    needs: [build]
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Export Branch Name
+        run: echo "BRANCH_NAME=${GITHUB_REF##*/}" >> $GITHUB_ENV
+      - name: Setup Pages
+        if: ${{ env.BRANCH_NAME == 'main' }}
+        uses: actions/configure-pages@v2
+      - name: Deploy to GitHub Pages
+        if: ${{ env.BRANCH_NAME == 'main' }}
+        id: deployment
+        uses: actions/deploy-pages@v1
