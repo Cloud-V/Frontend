@@ -1405,6 +1405,13 @@ body {
                 width: 60% !important;
             }
         }
+        .landing-footer-sponsors {
+            @media screen and (min-width: 1441px) {
+                width: 60% !important;
+            }
+            font-size: 0.75rem;
+            color: $textPrimaryColorInactive;
+        }
     }
 }
 

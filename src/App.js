@@ -3,6 +3,7 @@ import * as Pages from "./pages.js";
 import routes from "./routes.js";
 import { DashboardLayout, LandingLayout } from "./containers";
 import { history } from "./store";
+import { getHeartbeat } from "./store/actions/heartbeat.js";
 
 import _ from "lodash";
 import React, { Component } from "react";
@@ -17,11 +18,18 @@ const mapStateToProps = (state) => {
     return {
         user: state.get("user"),
         message: state.get("message"),
+        heartbeat: state.get("heartbeat"),
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getHeartbeat: () => dispatch(getHeartbeat()),
     };
 };
 
 class App extends Component {
-    componentDidMount() {
+    async componentDidMount() {
         ReactGA.initialize(
             process.env.REACT_APP_GA_TRACKING_ID || "UA-000000-01",
             {
@@ -34,12 +42,28 @@ class App extends Component {
             });
             ReactGA.pageview(location.pathname);
         });
+        this.props.getHeartbeat();
     }
+
     render() {
         const isLogged =
             !this.props.user.get("data").isEmpty() &&
             this.props.user.get("data").get("username").length;
         const signupComplete = this.props.user.get("data").get("authComplete");
+
+        const { heartbeat } = this.props;
+
+        if (heartbeat.get("status") === "error") {
+            return (
+                <React.Fragment>
+                    <ConnectedRouter history={history}>
+                        <Switch>
+                            <Pages.Maintenance />
+                        </Switch>
+                    </ConnectedRouter>
+                </React.Fragment>
+            );
+        }
 
         return (
             <React.Fragment>
@@ -193,6 +217,12 @@ class App extends Component {
                             name="Page 500"
                             component={Pages.Page500}
                         />
+                        <Route
+                            exact
+                            path="/maintenance"
+                            name="Maintenance"
+                            component={Pages.Maintenance}
+                        />
                         {(() => {
                             if (isLogged) {
                                 if (!signupComplete) {
@@ -262,4 +292,4 @@ class App extends Component {
     }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

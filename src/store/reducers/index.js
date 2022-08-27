@@ -23,6 +23,7 @@ import contact from "./contact";
 import workspace from "./workspace";
 import stats from "./stats";
 import library from "./library";
+import heartbeat from "./heartbeat";
 
 import { reducer as form } from "redux-form/immutable";
 
@@ -51,6 +52,7 @@ const rootReducer = combineReducers({
     stats,
     form,
     library,
+    heartbeat,
 });
 
 export default rootReducer;

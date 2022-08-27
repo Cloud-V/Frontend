@@ -107,9 +107,7 @@ class LandingPage extends Component {
                                 </Link>
                             </Col>
                         </Row>
-                        <br />
-                        <br />
-                        <Row className="landing-footer-text-wrap w-100 pt-2 center-all">
+                        <Row className="landing-footer-sponsors w-100 pt-2 center-all">
                             <p className="text-center">
                                 Sponsored by{" "}
                                 <a

@@ -106,6 +106,8 @@ export const ActionNames = {
     WORKSPACE_SET_LOGS: "WORKSPACE_SET_LOGS",
     WORKSPACE_ADD_LOGS: "WORKSPACE_ADD_LOGS",
     WORKSPACE_SET_LOG_TAB: "WORKSPACE_SET_LOG_TAB",
+
+    HEARTBEAT: "HEARTBEAT",
 };
 
 const Port = process.env.REACT_APP_PORT || 3000;
@@ -169,6 +171,7 @@ const BoardsURL = `boards`;
 const CompileURL = `compile`;
 const DownloadURL = `download`;
 const TryURL = `try`;
+const HeartbeatURL = `heartbeat`;
 
 export const URLs = {
     Port,
@@ -228,6 +231,7 @@ export const URLs = {
     Compile: CompileURL,
     Download: DownloadURL,
     Try: TryURL,
+    Heartbeat: HeartbeatURL,
 };
 export const StorageKeys = {
     User: "USER",

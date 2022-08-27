@@ -30,6 +30,10 @@ export const Page404 = Loadable({
     loader: () => import("./views/Page404"),
     loading: Loading,
 });
+export const Maintenance = Loadable({
+    loader: () => import("./views/Maintenance"),
+    loading: Loading,
+});
 export const Page500 = Loadable({
     loader: () => import("./views/Page500"),
     loading: Loading,
