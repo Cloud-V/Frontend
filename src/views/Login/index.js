@@ -8,7 +8,7 @@ import { Redirect } from "react-router-dom";
 
 import { ToastContainer, Flip, toast } from "react-toastify";
 
-import LoginForm from "./LoginForm";
+// import LoginForm from "./LoginForm";
 
 import { login } from "store/actions/user";
 
@@ -95,11 +95,23 @@ class Login extends Component {
                             <div className="auth-section w-100 auth-box">
                                 <Card className="auth-card w-100">
                                     <CardBody>
-                                        <LoginForm onSubmit={this.login} />
+                                        {/* <LoginForm onSubmit={this.login} /> */}
+                                        <div className="d-flex landing-section-auth-buttons">
+                                            <Col
+                                                md="6"
+                                                sm="12"
+                                                className="mr-1"
+                                            >
+                                                <GHSignin />
+                                            </Col>
+                                            <Col md="6" sm="12" className="">
+                                                <GSignin />
+                                            </Col>
+                                        </div>
                                     </CardBody>
                                 </Card>
                             </div>
-                            <div className="landing-section landing-section-bottom cloudv-auth-login d-flex flex-column align-items-center">
+                            {/* <div className="landing-section landing-section-bottom cloudv-auth-login d-flex flex-column align-items-center">
                                 <h5 className="mb-4">Or log in using</h5>
                                 <div className="d-flex landing-section-auth-buttons">
                                     <Col md="6" sm="12" className="mr-1">
@@ -109,7 +121,7 @@ class Login extends Component {
                                         <GSignin />
                                     </Col>
                                 </div>
-                            </div>
+                            </div> */}
                         </Col>
                     </Container>
                 </div>

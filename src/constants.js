@@ -160,7 +160,6 @@ const GitHubAuthURL = process.env.REACT_APP_GITHUB_CLIENT_ID
 const GitHubCallbackURL = "auth/github/callback";
 const GoogleCallbackURL = "auth/google/callback";
 const CompleteSignupURL = "auth/complete";
-const CommunicationURL = `${DefaultURL}/port`;
 const WorkspaceURL = `ws`;
 const WorkspaceSettingsURL = `${WorkspaceURL}/settings`;
 const WorkspaceSafariURL = `ws-safari`;
@@ -220,7 +219,6 @@ export const URLs = {
     GitHubCallback: GitHubCallbackURL,
     GoogleCallback: GoogleCallbackURL,
     CompleteSignup: CompleteSignupURL,
-    Communication: CommunicationURL,
     Workspace: WorkspaceURL,
     WorkspaceSettings: WorkspaceSettingsURL,
     WorkspaceSafari: WorkspaceSafariURL,

@@ -41,7 +41,7 @@ class LandingPage extends Component {
                         </Col>
                     </div>
                     <div className="landing-section cloudv-button cloudv-create-try d-flex justify-content-center w-100">
-                        <Col
+                        {/* <Col
                             xl="3"
                             lg="4"
                             md="5"
@@ -55,7 +55,7 @@ class LandingPage extends Component {
                             >
                                 Create Account
                             </Button>
-                        </Col>
+                        </Col> */}
                         <Col
                             xl="3"
                             lg="4"
@@ -73,12 +73,12 @@ class LandingPage extends Component {
                         </Col>
                     </div>
 
-                    <div className="landing-section cloudv-button">
+                    {/* <div className="landing-section cloudv-button">
                         Have an account?{" "}
                         <Link className="plain-link" to={"/login"}>
                             <b>Log in</b>
                         </Link>
-                    </div>
+                    </div> */}
 
                     <div className="landing-section landing-section-bottom cloudv-auth-login d-flex flex-column align-items-center mt-5">
                         <h5 className="mb-4">Or log in with…</h5>
