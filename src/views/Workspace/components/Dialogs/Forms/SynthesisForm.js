@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form/immutable";
 import { Alert, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-import TreeSelect, { SHOW_CHILD } from "rc-tree-select";
+// import TreeSelect, { SHOW_CHILD } from "rc-tree-select";
 
 const validate = (values) => {
     const errors = {};
@@ -92,84 +92,84 @@ function renderOptions(options) {
     };
 }
 
-class RenderTreeField extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            id: "",
-            title: "",
-        };
-        this.onChange = this.onChange.bind(this);
-    }
+// class RenderTreeField extends Component {
+//     constructor(props) {
+//         super(props);
+//         this.state = {
+//             id: "",
+//             title: "",
+//         };
+//         this.onChange = this.onChange.bind(this);
+//     }
 
-    onChange(value, title, extras) {
-        if (extras) {
-            const { triggerNode } = extras;
-            if (triggerNode) {
-                const { type } = triggerNode.props;
-                if (type === "dcf") {
-                    this.setState({ id: value, title: title });
-                }
-            }
-        }
-    }
+//     onChange(value, title, extras) {
+//         if (extras) {
+//             const { triggerNode } = extras;
+//             if (triggerNode) {
+//                 const { type } = triggerNode.props;
+//                 if (type === "dcf") {
+//                     this.setState({ id: value, title: title });
+//                 }
+//             }
+//         }
+//     }
 
-    render() {
-        const {
-            input,
-            label,
-            meta: { touched, error },
-            treeData,
-            disabled,
-        } = this.props;
+//     render() {
+//         const {
+//             input,
+//             label,
+//             meta: { touched, error },
+//             treeData,
+//             disabled,
+//         } = this.props;
 
-        return (
-            <FormGroup>
-                <Label>{label}</Label>
-                <br />
-                <FormGroup inline>
-                    <TreeSelect
-                        treeData={treeData}
-                        treeCheckable={false}
-                        showCheckedStrategy={SHOW_CHILD}
-                        searchPlaceholder={"Search.."}
-                        style={{ minWidth: 300 }}
-                        multiple={false}
-                        treeCheckStrictly={true}
-                        treeIcon={true}
-                        maxTagCount={1}
-                        value={this.state.id}
-                        onChange={(value, title, extras) => {
-                            title = title[0];
-                            this.onChange(value, title, extras);
-                            input.onChange({
-                                id: value,
-                                title: title,
-                            });
-                        }}
-                        disabled={disabled}
-                        filterTreeNode={(query, node) =>
-                            new RegExp(query, "i").test(node.props.title)
-                        }
-                        treeDefaultExpandAll={true}
-                        getPopupContainer={(triggerNode) =>
-                            triggerNode.parentNode
-                        }
-                        defaultExpandedKeys={[
-                            ...(Array.isArray(this.state.treeData) &&
-                            this.state.treeData.length
-                                ? [this.state.treeData[0].key]
-                                : []),
-                        ]}
-                    />
-                </FormGroup>
-                {touched && error && (
-                    <div className="form-field-error">{error}</div>
-                )}
-            </FormGroup>
-        );
-    }
-}
+//         return (
+//             <FormGroup>
+//                 <Label>{label}</Label>
+//                 <br />
+//                 <FormGroup inline>
+//                     <TreeSelect
+//                         treeData={treeData}
+//                         treeCheckable={false}
+//                         showCheckedStrategy={SHOW_CHILD}
+//                         searchPlaceholder={"Search.."}
+//                         style={{ minWidth: 300 }}
+//                         multiple={false}
+//                         treeCheckStrictly={true}
+//                         treeIcon={true}
+//                         maxTagCount={1}
+//                         value={this.state.id}
+//                         onChange={(value, title, extras) => {
+//                             title = title[0];
+//                             this.onChange(value, title, extras);
+//                             input.onChange({
+//                                 id: value,
+//                                 title: title,
+//                             });
+//                         }}
+//                         disabled={disabled}
+//                         filterTreeNode={(query, node) =>
+//                             new RegExp(query, "i").test(node.props.title)
+//                         }
+//                         treeDefaultExpandAll={true}
+//                         getPopupContainer={(triggerNode) =>
+//                             triggerNode.parentNode
+//                         }
+//                         defaultExpandedKeys={[
+//                             ...(Array.isArray(this.state.treeData) &&
+//                                 this.state.treeData.length
+//                                 ? [this.state.treeData[0].key]
+//                                 : []),
+//                         ]}
+//                     />
+//                 </FormGroup>
+//                 {touched && error && (
+//                     <div className="form-field-error">{error}</div>
+//                 )}
+//             </FormGroup>
+//         );
+//     }
+// }
 
 class SynthesisForm extends Component {
     constructor(props) {
@@ -197,9 +197,9 @@ class SynthesisForm extends Component {
             handleSubmit,
             submitting,
             //	status,
-            dcfTree,
+            // dcfTree,
             errorMessage,
-            strategies,
+            // strategies,
             stdcells,
             // execTypes
         } = this.props;
@@ -219,7 +219,7 @@ class SynthesisForm extends Component {
                     type="select"
                     component={renderOptions(stdcells)}
                 />
-                <br />
+                {/* <br />
 
                 <div class="collapsable_tabs">
                     <div class="collapsable_tab">
@@ -294,8 +294,7 @@ class SynthesisForm extends Component {
                         </div>
                     </div>
                 </div>
-
-                {/* <Field
+                <Field
 					name="synthType"
 					label="Synthesis Execution Type: "
 					type="select"
