@@ -69,7 +69,7 @@ class Login extends Component {
 
         var isDevelopment = false;
 
-        if (process.env.REACT_APP_ENABLE_LOGIN === '1') {
+        if (process.env.REACT_APP_ENABLE_LOGIN === "1") {
             isDevelopment = true;
         }
 
@@ -99,27 +99,35 @@ class Login extends Component {
                                     </div>
                                 </Col>
                             </div>
-                            {isDevelopment && (<div className="auth-section w-100 auth-box">
-                                <Card className="auth-card w-100">
-                                    <CardBody>
-                                        <LoginForm onSubmit={this.login} />
-                                        <div className="d-flex landing-section-auth-buttons">
-                                            <Col
-                                                md="6"
-                                                sm="12"
-                                                className="mr-1"
-                                            >
-                                                <GHSignin />
-                                            </Col>
-                                            <Col md="6" sm="12" className="">
-                                                <GSignin />
-                                            </Col>
-                                        </div>
-                                    </CardBody>
-                                </Card>
-                            </div>)}
+                            {isDevelopment && (
+                                <div className="auth-section w-100 auth-box">
+                                    <Card className="auth-card w-100">
+                                        <CardBody>
+                                            <LoginForm onSubmit={this.login} />
+                                            <div className="d-flex landing-section-auth-buttons">
+                                                <Col
+                                                    md="6"
+                                                    sm="12"
+                                                    className="mr-1"
+                                                >
+                                                    <GHSignin />
+                                                </Col>
+                                                <Col
+                                                    md="6"
+                                                    sm="12"
+                                                    className=""
+                                                >
+                                                    <GSignin />
+                                                </Col>
+                                            </div>
+                                        </CardBody>
+                                    </Card>
+                                </div>
+                            )}
                             <div className="landing-section landing-section-bottom cloudv-auth-login d-flex flex-column align-items-center">
-                                {isDevelopment && (<h5 className="mb-4">Or log in using</h5>)}
+                                {isDevelopment && (
+                                    <h5 className="mb-4">Or log in using</h5>
+                                )}
                                 <div className="d-flex landing-section-auth-buttons">
                                     <Col md="6" sm="12" className="mr-1">
                                         <GHSignin />
