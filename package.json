@@ -108,7 +108,7 @@
         "build-js": "NODE_PATH=src react-scripts build",
         "build": "NODE_PATH=src npm-run-all build-css build-js",
         "watch-css": "NODE_PATH=src yarn run build-css && node-sass-chokidar --include-path ./node_modules ./src/scss -o ./src/scss --watch --recursive",
-        "watch-js": "PORT=${PORT:-8080} NODE_PATH=src react-scripts start",
+        "watch-js": "PORT=${PORT:-8080} NODE_PATH=src REACT_APP_ENABLE_LOGIN=1 react-scripts start",
         "watch": "PORT=${PORT:-8080} NODE_PATH=src npm-run-all -p watch-css watch-js",
         "test": "NODE_PATH=src react-scripts test --env=jsdom",
         "format": "node ./node_modules/prettier/bin-prettier.js --write .",

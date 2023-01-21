@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Field, reduxForm } from "redux-form/immutable";
+import { Field, reduxForm } from "redux-form/immutable.js";
 import { Link } from "react-router-dom";
 import { Alert, Form, FormGroup, Label, Input, Button } from "reactstrap";
 import PasswordMask from "modules/react-password-mask";

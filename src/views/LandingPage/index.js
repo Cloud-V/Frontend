@@ -26,6 +26,13 @@ class LandingPage extends Component {
         if (!this.props.user.get("data").isEmpty()) {
             return <Redirect push to={"/dashboard"} />;
         }
+
+        var isDevelopment = false;
+        console.log("process.env.ENABLE_LOGIN: " + process.env.REACT_APP_ENABLE_LOGIN)
+        if (process.env.REACT_APP_ENABLE_LOGIN === '1') {
+            isDevelopment = true;
+        }
+        console.log("isDevelopment: " + isDevelopment)
         return (
             <React.Fragment>
                 <div className="app flex-column center-all h-100 landing-page">
@@ -41,7 +48,7 @@ class LandingPage extends Component {
                         </Col>
                     </div>
                     <div className="landing-section cloudv-button cloudv-create-try d-flex justify-content-center w-100">
-                        {/* <Col
+                        {isDevelopment && (<Col
                             xl="3"
                             lg="4"
                             md="5"
@@ -55,7 +62,7 @@ class LandingPage extends Component {
                             >
                                 Create Account
                             </Button>
-                        </Col> */}
+                        </Col>)}
                         <Col
                             xl="3"
                             lg="4"
@@ -73,15 +80,15 @@ class LandingPage extends Component {
                         </Col>
                     </div>
 
-                    {/* <div className="landing-section cloudv-button">
+                    {isDevelopment && (<div className="landing-section cloudv-button">
                         Have an account?{" "}
                         <Link className="plain-link" to={"/login"}>
                             <b>Log in</b>
                         </Link>
-                    </div> */}
+                    </div>)}
 
                     <div className="landing-section landing-section-bottom cloudv-auth-login d-flex flex-column align-items-center mt-5">
-                        <h5 className="mb-4">Or log in with…</h5>
+                        <h5 className="mb-4">Or sign up with…</h5>
                         <div className="d-flex landing-section-auth-buttons">
                             <GHSignin />
                             <span style={{ width: "30px" }}></span>
