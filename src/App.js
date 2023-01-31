@@ -77,6 +77,7 @@ class App extends Component {
                     is used as outlined in the{" "}
                     <a href="/privacy">Privacy Policy</a>.
                 </CookieConsent>
+
                 <ConnectedRouter history={history}>
                     <Switch>
                         <Route

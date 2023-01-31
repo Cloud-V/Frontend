@@ -527,8 +527,8 @@ class MenuBar extends Component {
                         }
                         disabled={
                             !(
-                                selection.length === 1 &&
-                                selection[0].type === "testbench"
+                                (selection.length === 1)
+                                // && selection[0].type === "testbench"
                             ) || this.props.isSimulating
                         }
                         className={
