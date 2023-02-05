@@ -135,40 +135,40 @@ const fileCategories = [
                     );
                 },
             },
-            {
-                id: "dcf",
-                name: "Design Constraints File",
-                icon: "dcf",
-                component: function (props) {
-                    return (
-                        <FileAndOptionsForm
-                            {...props}
-                            targets={props.stdcells}
-                            defaultFilename="constraints.dcf"
-                            titleField={"text"}
-                            onSubmit={(fileData) => {
-                                return props.onSubmit(
-                                    fileData
-                                        .set("type", "dcf")
-                                        .set(
-                                            "fileName",
-                                            adjustExtension(
-                                                fileData.get("fileName"),
-                                                ".dcf"
-                                            )
-                                        )
-                                        .set("content", {
-                                            stdcell: fileData.get("target"),
-                                        })
-                                        .set("parent", props.targetNode.id)
-                                        .toJS()
-                                );
-                            }}
-                            onCancel={props.onCancel}
-                        />
-                    );
-                },
-            },
+            // {
+            //     id: "dcf",
+            //     name: "Design Constraints File",
+            //     icon: "dcf",
+            //     component: function (props) {
+            //         return (
+            //             <FileAndOptionsForm
+            //                 {...props}
+            //                 targets={props.stdcells}
+            //                 defaultFilename="constraints.dcf"
+            //                 titleField={"text"}
+            //                 onSubmit={(fileData) => {
+            //                     return props.onSubmit(
+            //                         fileData
+            //                             .set("type", "dcf")
+            //                             .set(
+            //                                 "fileName",
+            //                                 adjustExtension(
+            //                                     fileData.get("fileName"),
+            //                                     ".dcf"
+            //                                 )
+            //                             )
+            //                             .set("content", {
+            //                                 stdcell: fileData.get("target"),
+            //                             })
+            //                             .set("parent", props.targetNode.id)
+            //                             .toJS()
+            //                     );
+            //                 }}
+            //                 onCancel={props.onCancel}
+            //             />
+            //         );
+            //     },
+            // },
         ],
     },
     {

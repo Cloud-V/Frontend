@@ -1,3 +1,4 @@
+import { URLs } from "./constants.js";
 import * as Pages from "./pages.js";
 import routes from "./routes.js";
 import { DashboardLayout, LandingLayout } from "./containers";
@@ -76,20 +77,21 @@ class App extends Component {
                     is used as outlined in the{" "}
                     <a href="/privacy">Privacy Policy</a>.
                 </CookieConsent>
+
                 <ConnectedRouter history={history}>
                     <Switch>
-                        {/* <Route
+                        <Route
                             exact
                             path={"/signup"}
                             name="Signup to Cloud V"
                             component={Pages.Signup}
-                        /> */}
-                        <Route
+                        />
+                        {/* <Route
                             exact
                             path={"/signup"}
                             name={"Sign up"}
                             render={(props) => <Redirect to={"/login"} />}
-                        />
+                        /> */}
                         <Route
                             exact
                             path={"/login"}
@@ -283,6 +285,15 @@ class App extends Component {
                         <Route component={Pages.Page404} />
                     </Switch>
                 </ConnectedRouter>
+                <div className="d-none">
+                    <iframe
+                        title="communicationIframe"
+                        src={URLs.Communication}
+                        frameBorder="1"
+                        width="0"
+                        height="0"
+                    ></iframe>
+                </div>
             </React.Fragment>
         );
     }

@@ -16,10 +16,10 @@ class WorkspaceSettingsDialog extends Component {
         // const settings = this.props.repository
         // 	.get("data")
         // 	.get("settings");
-        const currentFontSize = this.props.repository
-            .get("data")
-            .get("settings")
-            .get("fontSize");
+        // const currentFontSize = this.props.repository
+        //     .get("data")
+        //     .get("settings")
+        //     .get("fontSize");
 
         return (
             <BaseDialog
@@ -34,7 +34,7 @@ class WorkspaceSettingsDialog extends Component {
                             this.props.callback(wsData.toJS())
                         }
                         onCancel={this.props.toggle}
-                        defaultFontsize={currentFontSize}
+                        // defaultFontsize={currentFontSize}
                     />
                 }
             />
