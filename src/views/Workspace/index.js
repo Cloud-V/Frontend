@@ -409,10 +409,11 @@ class Workspace extends Component {
         const filesMap = _.keyBy(files.get("data").toJS(), "id");
         const selectedNodes = _.map(selectTreeNodes, (node) => filesMap[node]);
         return this.showPrompt({
-            title: `Delete ${selectedNodes.length > 1
+            title: `Delete ${
+                selectedNodes.length > 1
                     ? `${selectedNodes.length} entries`
                     : selectedNodes[0].title
-                }`,
+            }`,
             body: (
                 <React.Fragment>
                     Are you sure you want to delete{" "}
@@ -851,7 +852,7 @@ class Workspace extends Component {
         }, {});
         return (
             childrenMap[
-            node.fileName || node.title || node.text || node.text
+                node.fileName || node.title || node.text || node.text
             ] || null
         );
     }
@@ -1479,11 +1480,11 @@ class Workspace extends Component {
             const startingLogs = isAsync
                 ? []
                 : [
-                    {
-                        message: `=== Synthesis started at ${new Date()}`,
-                        noCount: true,
-                    },
-                ];
+                      {
+                          message: `=== Synthesis started at ${new Date()}`,
+                          noCount: true,
+                      },
+                  ];
             await this.props.setLogs({
                 console: startingLogs,
                 errors: [],
@@ -1856,13 +1857,15 @@ class Workspace extends Component {
         }
         const date = new Date();
         const completedStartMessage = {
-            message: `=== Asynchronous Synthesis job ${isSuccess ? "completed" : "failed"
-                } at ${date}`,
+            message: `=== Asynchronous Synthesis job ${
+                isSuccess ? "completed" : "failed"
+            } at ${date}`,
             noCount: true,
         };
         const completedEndMessage = {
-            message: `=== Asynchronous Synthesis job ${isSuccess ? "completed" : "failed"
-                } at ${date} end of logs`,
+            message: `=== Asynchronous Synthesis job ${
+                isSuccess ? "completed" : "failed"
+            } at ${date} end of logs`,
             noCount: true,
         };
         if (isSuccess) {
