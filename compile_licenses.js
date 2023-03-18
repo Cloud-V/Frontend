@@ -1,8 +1,8 @@
-const Checker = require("license-checker");
+import Checker from "license-checker";
 
-const { promisify } = require("util");
-const fs = require("fs");
-const path = require("path");
+import { promisify } from "util";
+import fs from "fs";
+import path from "path";
 
 Checker.initp = promisify(Checker.init);
 
@@ -52,7 +52,7 @@ async function main() {
     let devText = compile(dev);
 
     let custom = [customText, prodText, devText];
-    fs.writeFileSync("./public/OSAcknowledgement.txt", custom.join("\n"));
+    console.log(custom.join("\n"));
 }
 
 main().catch((err) => {

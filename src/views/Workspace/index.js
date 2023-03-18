@@ -495,15 +495,15 @@ class Workspace extends Component {
         };
         if (matches.length) {
             /*return this.showPrompt({
-				title: `Overwrite ${newName}`,
-				body: (
-					<React.Fragment>
-						An entry with the same name {newName} already exsists,
-						do you want to overwrite?
-					</React.Fragment>
-				),
-				callback: _rename.bind(this)
-			});*/
+                title: `Overwrite ${newName}`,
+                body: (
+                    <React.Fragment>
+                        An entry with the same name {newName} already exsists,
+                        do you want to overwrite?
+                    </React.Fragment>
+                ),
+                callback: _rename.bind(this)
+            });*/
             return this.toastError(
                 `A file with the same name "${newName}" already exists.`
             );

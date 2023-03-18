@@ -8,7 +8,6 @@ class MockCaptcha extends Component {
     }
 }
 
-const Captcha =
-    process.env.REACT_APP_NOCAPTCHA === "1" ? MockCaptcha : HCaptcha;
+const Captcha = process.env.REACT_APP_CAPTCHA_SITE ? HCaptcha : MockCaptcha;
 
 export default Captcha;

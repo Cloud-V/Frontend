@@ -27,14 +27,7 @@ class LandingPage extends Component {
             return <Redirect push to={"/dashboard"} />;
         }
 
-        var isDevelopment = false;
-        console.log(
-            "process.env.ENABLE_LOGIN: " + process.env.REACT_APP_ENABLE_LOGIN
-        );
-        if (process.env.REACT_APP_ENABLE_LOGIN === "1") {
-            isDevelopment = true;
-        }
-        console.log("isDevelopment: " + isDevelopment);
+        const isDevelopment = process.env.NODE_ENV !== "production";
         return (
             <React.Fragment>
                 <div className="app flex-column center-all h-100 landing-page">

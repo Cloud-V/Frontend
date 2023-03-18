@@ -1852,9 +1852,6 @@ body {
     background-color: $dashboardBackground;
 }
 
-@include themify($themes) {
-}
-
 .modal-dialog.center-dialog {
     // position: absolute;
     // top: 50%;
