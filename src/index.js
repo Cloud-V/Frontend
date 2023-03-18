@@ -2,19 +2,19 @@ import "./polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 
+import "@coreui/icons/css/coreui-icons.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import "react-sortable-tree/style.css";
 import "rc-menu/assets/index.css";
 import "react-toastify/dist/ReactToastify.css";
-import "@coreui/icons/css/coreui-icons.min.css";
 import "flag-icon-css/css/flag-icon.min.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import "simple-line-icons/css/simple-line-icons.css";
 import "rc-tree-select/assets/index.css";
 import "normalize.css";
 
-import "./scss/style.css";
+import "./scss/style.scss";
 
 import App from "./App";
 

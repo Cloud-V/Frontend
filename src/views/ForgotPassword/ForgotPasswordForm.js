@@ -4,8 +4,6 @@ import { Field, reduxForm } from "redux-form/immutable";
 import { Link } from "react-router-dom";
 import { Alert, Form, FormGroup, Label, Input, Button } from "reactstrap";
 
-import Captcha from "../Captcha";
-
 const validate = (values) => {
     const errors = {};
     if (!values.get("username")) {
@@ -43,23 +41,16 @@ class RenderField extends Component {
 }
 
 class ForgotPasswordForm extends Component {
-    state = {
-        token: "",
-    };
-
     handleFormSubmit = (data) => {
         const username = data.get("username");
-        const captcha_token = this.state.token;
         return this.props.onSubmit({
             username,
-            captcha_token,
         });
     };
 
     render() {
         const { handleSubmit, submitting, status, errorMessage } = this.props;
         const resetRequestFailed = status === "action-error";
-        const captcha_site = process.env.REACT_APP_CAPTCHA_SITE;
 
         return (
             <Form
@@ -75,13 +66,6 @@ class ForgotPasswordForm extends Component {
                     component={RenderField}
                     authComplete="username"
                     label="Username or E-mail"
-                />
-                <Captcha
-                    sitekey={captcha_site}
-                    onVerify={(captcha_token) =>
-                        this.setState({ token: captcha_token })
-                    }
-                    onExpire={(e) => this.setState({ token: "" })}
                 />
                 <div className="w-100 d-flex justify-content-between align-items-center">
                     <Button

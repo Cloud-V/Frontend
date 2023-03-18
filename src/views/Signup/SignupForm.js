@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { Field, reduxForm } from "redux-form/immutable";
 import { Link } from "react-router-dom";
-import Captcha from "../Captcha";
 
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import PasswordMask from "modules/react-password-mask";
@@ -101,26 +100,19 @@ class PasswordField extends Component {
 }
 
 class LoginFrom extends Component {
-    state = {
-        token: "",
-    };
-
     handleFormSubmit = (data) => {
         const username = data.get("username");
         const password = data.get("password");
         const email = data.get("email");
-        const captcha_token = this.state.token;
         return this.props.onSubmit({
             username,
             password,
             email,
-            captcha_token,
         });
     };
 
     render() {
         const { handleSubmit, submitting } = this.props;
-        const captcha_site = process.env.REACT_APP_CAPTCHA_SITE;
         return (
             <Form
                 className="auth-form pt-2 pb-2"
@@ -153,13 +145,6 @@ class LoginFrom extends Component {
                     component={PasswordField}
                     label="Confirm Password"
                     autoComplete="new-password"
-                />
-                <Captcha
-                    sitekey={captcha_site}
-                    onVerify={(captcha_token) =>
-                        this.setState({ token: captcha_token })
-                    }
-                    onExpire={(e) => this.setState({ token: "" })}
                 />
 
                 <div className="w-100 d-flex justify-content-between align-items-center">

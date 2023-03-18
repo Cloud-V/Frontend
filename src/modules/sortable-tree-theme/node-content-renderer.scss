@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $row-padding: 2px;
 $hover-padding: 3px;
 .rowWrapper {
@@ -181,20 +183,19 @@ $hover-padding: 3px;
     animation: pointFade $spin-animation-time infinite ease-in-out both;
   }
 
-  @for $i from 1 through (($point-count + 1) / 2) {
+  @for $i from 1 through (($point-count + 1) * 0.5) {
     &:nth-of-type(#{$i}) {
-      transform: rotate(360deg / $point-count * ($i - 1));
+      transform: rotate(math.div(360deg, $point-count) * ($i - 1));
     }
 
-    &:nth-of-type(#{$i + $point-count / 2}) {
-      transform: rotate(180deg + 360deg / $point-count * ($i - 1));
+    &:nth-of-type(#{$i + $point-count * 0.5}) {
+      transform: rotate(180deg + math.div(360deg, $point-count) * ($i - 1));
     }
 
     &:nth-of-type(#{$i}),
-    &:nth-of-type(#{$i + $point-count / 2}) {
+    &:nth-of-type(#{$i + $point-count * 0.5}) {
       &:before {
-        animation-delay: - $spin-animation-time + ($spin-animation-time /
-              $point-count * 2 * ($i - 1));
+        animation-delay: - $spin-animation-time + (math.div($spin-animation-time, $point-count) * 2 * ($i - 1));
       }
     }
   }

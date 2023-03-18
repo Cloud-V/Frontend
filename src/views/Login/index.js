@@ -67,11 +67,7 @@ class Login extends Component {
             }
         }
 
-        var isDevelopment = false;
-
-        if (process.env.REACT_APP_ENABLE_LOGIN === "1") {
-            isDevelopment = true;
-        }
+        const isDevelopment = process.env.NODE_ENV !== "production";
 
         return (
             <div className="app">
